@@ -3,7 +3,7 @@ package pers.ricardolp.leetcode.easy;
 import java.util.HashMap;
 
 /**
- * leetcode_easy_1.
+ * leetcode_1 : Two Sum.
  * <p>
  * Given an array of integers nums and an integer target, return indices of the
  * two numbers such that they add up to target.<br>
@@ -45,7 +45,7 @@ import java.util.HashMap;
  */
 public class TwoSum {
     /**
-     * Solution1, O(n).
+     * Solution1.
      * <p>
      * Using a <b>HashMap</b>, when traversing, {@code target-nums[i]} corresponds
      * to {@code i}, stored in the hash table, and at the same time judge whether
@@ -74,7 +74,7 @@ public class TwoSum {
     }
 
     /**
-     * Solution2, O(n<sup>2</sup>).
+     * Solution2.
      * <p>
      * Using two <b>for</b> loops to traverse, return two subscripts when they add
      * up to the target.
@@ -98,4 +98,5 @@ public class TwoSum {
         }
         return indices;
     }
+
 }

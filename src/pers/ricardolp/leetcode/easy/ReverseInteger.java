@@ -1,7 +1,9 @@
 package pers.ricardolp.leetcode.easy;
 
+import java.util.Random;
+
 /**
- * leetcode_easy_7.
+ * leetcode_7 : Reverse Number.
  * <p>
  * Given a signed 32-bit integer x, return x with its digits reversed.<br>
  * If reversing x causes the value to go outside the signed 32-bit integer range
@@ -36,10 +38,54 @@ package pers.ricardolp.leetcode.easy;
  */
 public class ReverseInteger {
     public static void main(String[] args) {
-
+        Random random = new Random();
+        int x = random.nextInt();
+        System.out.println(x);
+        System.out.println(reverse2(x));
     }
 
-    private static int reverse(int x) {
-        return 0;
+    /**
+     * Solution1.
+     * <p>
+     * Reverse number.
+     *
+     * @param x the number to be reversed.
+     * @return reversed number, or 0 when overflowing.
+     */
+    private static int reverse1(int x) {
+        int rev = 0;
+        while (x != 0) {
+            if (rev < Integer.MIN_VALUE / 10 || rev > Integer.MAX_VALUE / 10) {
+                return 0;
+            }
+            int digit = x % 10;
+            x /= 10;
+            rev = rev * 10 + digit;
+        }
+        return rev;
     }
+
+    /**
+     * Solution2.
+     * <p>
+     * Using {@code String} to reverse the number.
+     *
+     * @param x the number to be reversed.
+     * @return inverted number, or 0 when overflowing.
+     */
+    private static int reverse2(int x) {
+        String valueStr = String.valueOf(x);
+        String str = valueStr;
+        int flag = 1;
+        if (x < 0) {
+            flag = -1;
+            str = valueStr.substring(1);
+        }
+        try {
+            return Integer.parseInt((new StringBuilder(str)).reverse().toString()) * flag;
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
+
 }
