@@ -44,6 +44,7 @@ import java.util.HashMap;
  * @since 2021/9/4
  */
 public class TwoSum {
+
     /**
      * Solution1.
      * <p>
@@ -61,6 +62,7 @@ public class TwoSum {
 
         // Build a <k, v> hash table.
         HashMap<Integer, Integer> hashMap = new HashMap<>(nums.length);
+
         for (int i = 0; i < nums.length; i++) {
             if (hashMap.containsKey(nums[i])) {
                 indices[0] = hashMap.get(nums[i]);

@@ -1,7 +1,5 @@
 package pers.ricardolp.leetcode.easy;
 
-import java.util.Random;
-
 /**
  * leetcode_7 : Reverse Number.
  * <p>
@@ -37,27 +35,24 @@ import java.util.Random;
  * @since 2021/9/5
  */
 public class ReverseInteger {
-    public static void main(String[] args) {
-        Random random = new Random();
-        int x = random.nextInt();
-        System.out.println(x);
-        System.out.println(reverse2(x));
-    }
 
     /**
      * Solution1.
      * <p>
-     * Reverse number.
+     * Using mod operation to reverse the number. Overflowing when condition
+     * {@code rev < Integer.MIN_VALUE / 10 || rev > Integer.MAX_VALUE / 10} is met.
      *
      * @param x the number to be reversed.
-     * @return reversed number, or 0 when overflowing.
+     * @return inverted number, or 0 when overflowing.
      */
     private static int reverse1(int x) {
         int rev = 0;
         while (x != 0) {
+            // Overflowing when condition is met.
             if (rev < Integer.MIN_VALUE / 10 || rev > Integer.MAX_VALUE / 10) {
                 return 0;
             }
+            // Break down the number.
             int digit = x % 10;
             x /= 10;
             rev = rev * 10 + digit;
@@ -68,7 +63,8 @@ public class ReverseInteger {
     /**
      * Solution2.
      * <p>
-     * Using {@code String} to reverse the number.
+     * Using {@code String} to reverse the number. Using {try...catch...} to catch
+     * the exception.
      *
      * @param x the number to be reversed.
      * @return inverted number, or 0 when overflowing.
@@ -76,11 +72,15 @@ public class ReverseInteger {
     private static int reverse2(int x) {
         String valueStr = String.valueOf(x);
         String str = valueStr;
+        // Mark symbol.
         int flag = 1;
+
         if (x < 0) {
             flag = -1;
+            // Truncate sign.
             str = valueStr.substring(1);
         }
+        // Catch the exception.
         try {
             return Integer.parseInt((new StringBuilder(str)).reverse().toString()) * flag;
         } catch (NumberFormatException e) {

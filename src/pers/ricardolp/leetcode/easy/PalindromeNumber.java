@@ -50,20 +50,17 @@ public class PalindromeNumber {
      * @return true if x is palindrome integer.
      */
     public static boolean isPalindrome1(int x) {
+        // Filter condition.
         if (x < 0 || (x % 10 == 0 && x != 0)) {
             return false;
         }
+
         int revertedNumber = 0;
         while (x > revertedNumber) {
             revertedNumber = revertedNumber * 10 + x % 10;
             x /= 10;
         }
         return x == revertedNumber || x == revertedNumber / 10;
-    }
-
-    public static void main(String[] args) {
-        int nums = 1000;
-        System.out.println(isPalindrome2(nums));
     }
 
     /**
