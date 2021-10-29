@@ -39,7 +39,7 @@ public class ReverseInteger {
     /**
      * Solution1.
      * <p>
-     * Using mod operation to reverse the number. Overflowing when condition
+     * Use mod operation to reverse the number. Overflowing when condition
      * {@code rev < Integer.MIN_VALUE / 10 || rev > Integer.MAX_VALUE / 10} is met.
      *
      * @param x the number to be reversed.
@@ -63,8 +63,8 @@ public class ReverseInteger {
     /**
      * Solution2.
      * <p>
-     * Using {@code String} to reverse the number. Using {try...catch...} to catch
-     * the exception.
+     * Use {@code String} to reverse the number. Using {try...catch...} to catch the
+     * exception.
      *
      * @param x the number to be reversed.
      * @return inverted number, or 0 when overflowing.

@@ -42,7 +42,7 @@ public class PalindromeNumber {
     /**
      * Solution1.
      * <p>
-     * Using mod operation to reverse numbers and compare before and after, when the
+     * Use mod operation to reverse numbers and compare before and after, when the
      * original number is less than or equal to the inverted number, it means that
      * we have processed half of the digits.
      *
@@ -66,7 +66,7 @@ public class PalindromeNumber {
     /**
      * Solution2.
      * <p>
-     * Using mod operation to reverse numbers and compare before and after.
+     * Use mod operation to reverse numbers and compare before and after.
      *
      * @param x an integer.
      * @return true if x is palindrome integer.

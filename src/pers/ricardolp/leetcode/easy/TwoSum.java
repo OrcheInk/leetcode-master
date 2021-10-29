@@ -48,10 +48,10 @@ public class TwoSum {
     /**
      * Solution1.
      * <p>
-     * Using a <b>HashMap</b>, when traversing, {@code target-nums[i]} corresponds
-     * to {@code i}, stored in the hash table, and at the same time judge whether
-     * there is a matching number in the <b>HashMap</b>, if there is, return the
-     * current {@code i} and {@code hashMap.get(nums[i])} as the indices.
+     * Use <b>HashMap</b>, when traversing, {@code target-nums[i]} corresponds to
+     * {@code i}, stored in the hash table, and at the same time judge whether there
+     * is a matching number in the <b>HashMap</b>, if there is, return the current
+     * {@code i} and {@code hashMap.get(nums[i])} as the indices.
      *
      * @param nums an array of integers.
      * @param target a target of integers.
@@ -78,8 +78,8 @@ public class TwoSum {
     /**
      * Solution2.
      * <p>
-     * Using two <b>for</b> loops to traverse, return two subscripts when they add
-     * up to the target.
+     * Use two <b>for</b> loops to traverse, return two subscripts when they add up
+     * to the target.
      *
      * @param nums an array of integers.
      * @param target a target of integers.
