@@ -53,8 +53,8 @@ public class TwoSum {
      * is a matching number in the <b>HashMap</b>, if there is, return the current
      * {@code i} and {@code hashMap.get(nums[i])} as the indices.
      *
-     * @param nums an array of integers.
-     * @param target a target of integers.
+     * @param nums array of integers.
+     * @param target target of integer.
      * @return indices of the two numbers such that they add up to target.
      */
     public int[] twoSum1(int[] nums, int target) {
@@ -81,8 +81,8 @@ public class TwoSum {
      * Use two <b>for</b> loops to traverse, return two subscripts when they add up
      * to the target.
      *
-     * @param nums an array of integers.
-     * @param target a target of integers.
+     * @param nums array of integers
+     * @param target target of integer.
      * @return indices of the two numbers such that they add up to target.
      */
     public int[] twoSum2(int[] nums, int target) {

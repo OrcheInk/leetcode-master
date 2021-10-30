@@ -1,7 +1,7 @@
 package pers.ricardolp.leetcode.easy;
 
 /**
- * leetcode_7 : Reverse Number.
+ * leetcode_7 : Reverse Integer.
  * <p>
  * Given a signed 32-bit integer x, return x with its digits reversed.<br>
  * If reversing x causes the value to go outside the signed 32-bit integer range

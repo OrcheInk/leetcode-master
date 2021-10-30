@@ -1,7 +1,7 @@
 package pers.ricardolp.leetcode.easy;
 
 /**
- * leetcode_9 : Reverse Number.
+ * leetcode_9 : Palindrome Number.
  * <p>
  * Given an integer x, return true if x is palindrome integer.
  *
