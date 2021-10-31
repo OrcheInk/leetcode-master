@@ -45,10 +45,6 @@ import java.util.Stack;
  * @since 2021/10/30
  */
 public class ValidParentheses {
-    public static void main(String[] args) {
-        String s = "([)]";
-        System.out.println(isValid3(s));
-    }
 
     /**
      * Solution1.
