@@ -7,6 +7,7 @@ package pers.ricardolp.leetcode.easy.other;
  * @since 2021/11/2
  */
 public class ListNode {
+
     public int val;
     public ListNode next;
 
@@ -25,4 +26,5 @@ public class ListNode {
     public String toString() {
         return val + "," + next;
     }
+
 }

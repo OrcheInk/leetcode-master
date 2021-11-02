@@ -5,8 +5,10 @@ import pers.ricardolp.leetcode.easy.other.ListNode;
 /**
  * leetcode_21 : Merge Two Sorted Lists.
  * <p>
- * Merge two sorted linked lists and return it as a sorted list. The list should
- * be made by splicing together the nodes of the first two lists.
+ * Merge two sorted linked lists and return it as a sorted list.
+ * <p>
+ * The list should be made by splicing together the nodes of the first two
+ * lists.
  *
  * <pre>
  * Example 1:
@@ -33,48 +35,29 @@ import pers.ricardolp.leetcode.easy.other.ListNode;
  */
 public class MergeTwoSortedLists {
 
-    public static void main(String[] args) {
-
-        ListNode l1 = new ListNode(-5);
-        ListNode l2 = new ListNode(2);
-        ListNode l3 = new ListNode(4);
-
-        l1.next = l2;
-        l2.next = l3;
-
-        ListNode l4 = new ListNode(-7);
-        ListNode l5 = new ListNode(-1);
-        ListNode l6 = new ListNode(6);
-
-        l4.next = l5;
-        l5.next = l6;
-
-        System.out.println(l1.toString());
-        System.out.println(l4.toString());
-        ListNode result = mergeTwoLists2(l1, l4);
-        System.out.println(result.toString());
-
-    }
-
     /**
      * Solution1.
      * <p>
      * Set up a sentinel node {@code prehead}, if the value of the current node of
-     * {@code l1} is less than or equal to {@code l2}, we will connect the current
-     * node of {@code l1} to the back of the prev node and move the {@code l1}
-     * pointer one bit backward. Otherwise, we do the same for {@code l2}.
+     * {@code l1} is less than or equal to {@code l2}.
+     * <p>
+     * We will connect the current node of {@code l1} to the back of the prev node
+     * and move the {@code l1} pointer one bit backward.
+     * <p>
+     * Otherwise, we do the same for {@code l2}.
      *
      * @param l1 the linked list that needs to be merged.
      * @param l2 the linked list that needs to be merged.
      * @return merged linked list.
      */
-    private static ListNode mergeTwoLists1(ListNode l1, ListNode l2) {
+    private ListNode mergeTwoLists1(ListNode l1, ListNode l2) {
 
         // Sentinel node.
         ListNode prehead = new ListNode(0);
         ListNode prev = prehead;
 
         while (l1 != null && l2 != null) {
+
             if (l1.val <= l2.val) {
                 prev.next = l1;
                 l1 = l1.next;
@@ -82,6 +65,7 @@ public class MergeTwoSortedLists {
                 prev.next = l2;
                 l2 = l2.next;
             }
+
             prev = prev.next;
         }
 
@@ -90,6 +74,7 @@ public class MergeTwoSortedLists {
          * we can directly point the end of the linked list to the unmerged linked list.
          */
         prev.next = l1 == null ? l2 : l1;
+
         return prehead.next;
     }
 
@@ -104,7 +89,8 @@ public class MergeTwoSortedLists {
      * @param l2 the linked list that needs to be merged.
      * @return merged linked list.
      */
-    private static ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
+    private ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
+
         if (l1 == null) {
             return l2;
         } else if (l2 == null) {
@@ -116,6 +102,7 @@ public class MergeTwoSortedLists {
             l2.next = mergeTwoLists2(l1, l2.next);
             return l2;
         }
+
     }
 
 }

@@ -9,9 +9,9 @@ import java.util.Stack;
  * Given a string s containing just the characters '(', ')', '{', '}', '[' and
  * ']', determine if the input string is valid.
  *
+ * <pre>
  * An input string is valid if:
  *
- * <pre>
  * 1. Open brackets must be closed by the same type of brackets.
  * 2. Open brackets must be closed in the correct order.
  *
@@ -50,28 +50,39 @@ public class ValidParentheses {
      * Solution1.
      * <p>
      * Judging the validity of parentheses can be solved by using the data structure
-     * "stack". After the traversal is over, if there is no left parenthesis in the
-     * stack, it means that we close all the left parentheses in the string s and
-     * return {@code true}, otherwise return {@code false}.
+     * "stack".
+     * <p>
+     * After the traversal is over, if there is no left parenthesis in the stack, it
+     * means that we close all the left parentheses in the string s and return
+     * {@code true}, otherwise return {@code false}.
      *
      * @param s the string to be verified.
      * @return is the string valid.
      */
-    private static boolean isValid1(String s) {
+    private boolean isValid1(String s) {
+
         int length = s.length();
         // If the string length is odd, return false.
         if (length % 2 == 1) {
             return false;
         }
-        // In order to quickly determine the type of parentheses, we can use a hash
-        // table to store each type of parentheses.
+
+        /*
+         * In order to quickly determine the type of parentheses, we can use a hash
+         * table to store each type of parentheses.
+         */
         HashMap<Character, Character> hash = new HashMap<>(3);
+
         hash.put(')', '(');
         hash.put('}', '{');
         hash.put(']', '[');
+
         Stack<Character> stack = new Stack<>();
+
         for (int i = 0; i < length; i++) {
+
             char ch = s.charAt(i);
+
             if (hash.containsKey(ch)) {
                 // Determine whether the current bracket matches the top of the stack.
                 if (stack.isEmpty() || !stack.peek().equals(hash.get(ch))) {
@@ -79,6 +90,7 @@ public class ValidParentheses {
                 } else {
                     stack.pop();
                 }
+
             } else {
                 stack.push(ch);
             }
@@ -94,15 +106,20 @@ public class ValidParentheses {
      * @param s the string to be verified.
      * @return is the string valid.
      */
-    private static boolean isValid2(String s) {
+    private boolean isValid2(String s) {
+
         // If the string length is odd, return false.
         if (s.length() % 2 == 1) {
             return false;
         }
-        char[] array = new char[s.length() + 1];
+
         int count = 1;
+        char[] array = new char[s.length() + 1];
+
         for (int i = 0; i < s.length(); i++) {
+
             char c = s.charAt(i);
+
             if (c == '(' || c == '[' || c == '{') {
                 // Push.
                 array[count++] = c;
@@ -142,15 +159,20 @@ public class ValidParentheses {
      * @param s the string to be verified.
      * @return is the string valid.
      */
-    private static boolean isValid3(String s) {
+    private boolean isValid3(String s) {
+
         char[] array = s.toCharArray();
         // Place unpaired parentheses.
         char[] temp = new char[array.length];
         int count = 0;
+
         for (char aChar : array) {
             temp[count] = aChar;
-            // If there is a difference of 1 or 2 between the ASCII codes of adjacent
-            // brackets, the brackets match.
+
+            /*
+             * If there is a difference of 1 or 2 between the ASCII codes of adjacent
+             * brackets, the brackets match.
+             */
             if (count != 0 && (temp[count] - temp[count - 1] == 1 || temp[count] - temp[count - 1] == 2)) {
                 count--;
             } else {
@@ -169,12 +191,15 @@ public class ValidParentheses {
      * @param s the string to be verified.
      * @return is the string valid.
      */
-    private static boolean isValid4(String s) {
+    private boolean isValid4(String s) {
+
         // If the string length is odd, return false.
         if (s.length() % 2 == 1) {
             return false;
         }
+
         int length = s.length() / 2;
+
         for (int i = 0; i < length; i++) {
             s = s.replace("()", "").replace("{}", "").replace("[]", "");
         }

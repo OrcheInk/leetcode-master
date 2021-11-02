@@ -32,18 +32,23 @@ public class LongestCommonPrefix {
      * Solution1.
      * <p>
      * Traverse each string in the string array in turn, and update the longest
-     * common prefix for each traversed string. After traversing all the strings,
-     * you can get the longest common prefix in the string array.
+     * common prefix for each traversed string.
+     * <p>
+     * After traversing all the strings, you can get the longest common prefix in
+     * the string array.
      *
      * @param strs string array.
      * @return longest the common prefix.
      */
-    private static String longestCommonPrefix1(String[] strs) {
+    private String longestCommonPrefix1(String[] strs) {
+
         if (strs.length == 1) {
             return strs[0];
         }
-        // The public prefix is ​​shorter than all strings, choose any.
+
+        // The public prefix is shorter than all strings, choose any.
         String prefix = strs[0];
+
         for (String string : strs) {
             while (!string.startsWith(prefix)) {
                 // Make it shorter if the common prefix does not match.
@@ -54,22 +59,26 @@ public class LongestCommonPrefix {
     }
 
     /**
-     * Solution1.
+     * Solution2.
      * <p>
      * Traverse each column of all strings from front to back, compare whether the
-     * characters on the same column are the same, if they are the same, continue to
-     * compare the next column, if they are not the same, the current column no
-     * longer belongs to the common prefix, and the part before the current column
-     * is the longest Common prefix.
+     * characters on the same column are the same.
+     * <p>
+     * If they are the same, continue to compare the next column, if they are not
+     * the same, the current column no longer belongs to the common prefix, and the
+     * part before the current column is the longest Common prefix.
      *
      * @param strs string array.
      * @return longest the common prefix.
      */
-    private static String longestCommonPrefix2(String[] strs) {
+    private String longestCommonPrefix2(String[] strs) {
+
         int length = strs[0].length();
         int count = strs.length;
+
         for (int i = 0; i < length; i++) {
             char c = strs[0].charAt(i);
+
             for (int j = 1; j < count; j++) {
                 // i == strs[j].length() explain that str[j] is one bit longer than str[0].
                 if (i == strs[j].length() || strs[j].charAt(i) != c) {

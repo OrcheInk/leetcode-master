@@ -3,9 +3,11 @@ package pers.ricardolp.leetcode.easy;
 /**
  * leetcode_7 : Reverse Integer.
  * <p>
- * Given a signed 32-bit integer x, return x with its digits reversed.<br>
+ * Given a signed 32-bit integer x, return x with its digits reversed.
+ * <p>
  * If reversing x causes the value to go outside the signed 32-bit integer range
- * [-2<sup>31</sup>, 2<sup>31</sup> - 1], then return 0.<br>
+ * [-2<sup>31</sup>, 2<sup>31</sup> - 1], then return 0.
+ * <p>
  * Assume the environment does not allow you to store 64-bit integers (signed or
  * unsigned).
  *
@@ -25,11 +27,11 @@ package pers.ricardolp.leetcode.easy;
  * Example 4:
  * Input: x = 0
  * Output: 0
- * </pre>
  *
  * Constraints:
- * <p>
- * -2<sup>31</sup>&lt;= x &lt;= 2<sup>31</sup> - 1
+ *
+ * -2<sup>31</sup> <= x <= 2<sup>31</sup> - 1
+ * </pre>
  *
  * @author RicardoLP
  * @since 2021/9/5
@@ -39,14 +41,18 @@ public class ReverseInteger {
     /**
      * Solution1.
      * <p>
-     * Use mod operation to reverse the number. Overflowing when condition
+     * Use mod operation to reverse the number.
+     * <p>
+     * Overflowing when condition
      * {@code rev < Integer.MIN_VALUE / 10 || rev > Integer.MAX_VALUE / 10} is met.
      *
      * @param x the number to be reversed.
      * @return inverted number, or 0 when overflowing.
      */
-    private static int reverse1(int x) {
+    private int reverse1(int x) {
+
         int rev = 0;
+
         while (x != 0) {
             // Overflowing when condition is met.
             if (rev < Integer.MIN_VALUE / 10 || rev > Integer.MAX_VALUE / 10) {
@@ -63,13 +69,13 @@ public class ReverseInteger {
     /**
      * Solution2.
      * <p>
-     * Use {@code String} to reverse the number. Using {try...catch...} to catch the
-     * exception.
+     * Use {@code String} to reverse the number.
      *
      * @param x the number to be reversed.
      * @return inverted number, or 0 when overflowing.
      */
-    private static int reverse2(int x) {
+    private int reverse2(int x) {
+
         String valueStr = String.valueOf(x);
         String str = valueStr;
         // Mark symbol.
@@ -80,7 +86,7 @@ public class ReverseInteger {
             // Truncate sign.
             str = valueStr.substring(1);
         }
-        // Catch the exception.
+
         try {
             return Integer.parseInt((new StringBuilder(str)).reverse().toString()) * flag;
         } catch (NumberFormatException e) {
