@@ -52,7 +52,7 @@ package pers.ricardolp.leetcode.easy;
  *
  * Constraints:
  *
- * 0 <= nums.length <= 3 * 104
+ * 0 <= nums.length <= 3 * 10<sup>4</sup>
  * -100 <= nums[i] <= 100
  * nums is sorted in non-decreasing order.
  * </pre>
@@ -61,12 +61,83 @@ package pers.ricardolp.leetcode.easy;
  * @since 2021/11/2
  */
 public class RemoveDuplicatesFromSortedArray {
-    public static void main(String[] args) {
 
+    /**
+     * Solution1.
+     * <p>
+     * Delete duplicate elements by double pointer method.
+     *
+     * @param nums the array that needs to be deduplicated.
+     * @return the number of distinct elements in the array.
+     */
+    private int removeDuplicates1(int[] nums) {
+
+        int slow = 0;
+
+        for (int fast = 1; fast < nums.length; fast++) {
+
+            if (nums[slow] == nums[fast]) {
+                continue;
+            }
+
+            slow++;
+            nums[slow] = nums[fast];
+        }
+        return ++slow;
     }
 
-    public int removeDuplicates(int[] nums) {
-        return 0;
+    /**
+     * Solution2.
+     * <p>
+     * Delete duplicate elements by double pointer method.
+     *
+     * @param nums the array that needs to be deduplicated.
+     * @return the number of distinct elements in the array.
+     */
+    private int removeDuplicates2(int[] nums) {
+
+        int slow = 1;
+
+        for (int fast = 1; fast < nums.length; fast++) {
+
+            if (nums[slow - 1] != nums[fast]) {
+                nums[slow++] = nums[fast];
+            }
+
+        }
+        return slow;
+    }
+
+    /**
+     * Solution3.
+     * <p>
+     * Replace the repeated elements in the array before rearranging them.
+     *
+     * @param nums the array that needs to be deduplicated.
+     * @return the number of distinct elements in the array.
+     */
+    private int removeDuplicates3(int[] nums) {
+
+        int flag = 0;
+        int limit = Integer.MIN_VALUE;
+
+        for (int i = 0; i < nums.length - 1; i++) {
+
+            if (nums[i] == nums[i + 1]) {
+                nums[i] = limit;
+            }
+
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+
+            if (nums[i] != limit) {
+                nums[flag] = nums[i];
+                flag++;
+            }
+
+        }
+        return flag;
     }
 
 }
