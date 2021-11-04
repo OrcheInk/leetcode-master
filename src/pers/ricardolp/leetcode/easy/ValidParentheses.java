@@ -37,7 +37,7 @@ import java.util.Stack;
  *
  * Constraints:
  *
- * 1 <= s.length <= 104
+ * 1 <= s.length <= 10<sup>4</sup>
  * s consists of parentheses only '()[]{}'.
  * </pre>
  *

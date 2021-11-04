@@ -31,7 +31,7 @@ package pers.ricardolp.leetcode.easy;
  *
  * Constraints:
  *
- * 0 <= haystack.length, needle.length <= 5 * 104
+ * 0 <= haystack.length, needle.length <= 5 * 10<sup>4</sup>
  * The haystack and needle consist of only lower-case English characters.
  * </pre>
  *
