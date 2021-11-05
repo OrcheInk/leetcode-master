@@ -42,11 +42,92 @@ package pers.ricardolp.leetcode.easy;
  * @since 2021/11/4
  */
 public class SearchInsertPosition {
-    public static void main(String[] args) {
 
+    /**
+     * Searches a range of the specified array of ints for the specified value using
+     * the binary search algorithm.
+     *
+     * @param a the array to be searched.
+     * @param fromIndex the index of the first element (inclusive) to be searched.
+     * @param toIndex the index of the last element (exclusive) to be searched.
+     * @param key the value to be searched for.
+     * @return index of the search key, if it is contained in the array within the
+     *         specified range; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>.
+     *         The <i>insertion point</i> is defined as the point at which the key
+     *         would be inserted into the array: the index of the first element in
+     *         the range greater than the key, or <tt>toIndex</tt> if all elements
+     *         in the range are less than the specified key. Note that this
+     *         guarantees that the return value will be &gt;= 0 if and only if the
+     *         key is found.
+     * @throws IllegalArgumentException if {@code fromIndex > toIndex}
+     * @throws ArrayIndexOutOfBoundsException if
+     *             {@code fromIndex < 0 or toIndex > a.length}
+     * @since 1.6
+     */
+    private static int binarySearch0(int[] a, int fromIndex, int toIndex, int key) {
+
+        int low = fromIndex;
+        int high = toIndex - 1;
+
+        while (low <= high) {
+
+            /*
+             * The >>> treats the values as 32-bit unsigned int,
+             * and the sum of two 31-bit signed ints cannot be larger than
+             * a 32-bit unsigned int so there is no overflow for the purpose of this operation.
+             * Note: if you used >> you could have a problem.
+             */
+            int mid = (low + high) >>> 1;
+            int midVal = a[mid];
+
+            if (midVal < key) {
+                low = mid + 1;
+            } else if (midVal > key) {
+                high = mid - 1;
+            } else
+            // key found
+            {
+                return mid;
+            }
+        }
+        // key not found.
+        return -(low + 1);
     }
 
+    /**
+     * Solution1.
+     * <p>
+     * Use binary search.
+     * <p>
+     * Time complexity O(log n).
+     *
+     * @param nums the specified array.
+     * @param target the target number.
+     * @return the index of the target number.
+     */
     private int searchInsert(int[] nums, int target) {
-        return 0;
+
+        int low = 0;
+        int high = nums.length - 1;
+        int ans = nums.length;
+
+        while (low <= high) {
+
+            /*
+             * If it is (low + high) / 2, overflow will occur when both
+             * low and high are greater than half of the int range.
+             */
+            int mid = ((high - low) >> 1) + low;
+
+            if (target <= nums[mid]) {
+                ans = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+
+        }
+        return ans;
     }
+
 }
