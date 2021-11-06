@@ -34,12 +34,99 @@ package pers.ricardolp.leetcode.easy;
  * @since 2021/11/5
  */
 public class MaximumSubarray {
-    public static void main(String[] args) {
 
+    /**
+     * Solution1.
+     * <p>
+     * Dynamic programming.
+     *
+     * @param nums the specified array.
+     * @return the largest sum of the contiguous subarray.
+     */
+    private int maxSubArray1(int[] nums) {
+
+        int pre = 0, result = nums[0];
+
+        for (int num : nums) {
+
+            // pre is the largest sum of the contiguous subarray.
+            pre = Math.max(pre + num, num);
+            // record the maximum value in pre.
+            result = Math.max(result, pre);
+
+        }
+        return result;
     }
 
-    private int maxSubArray(int[] nums) {
+    /**
+     * Solution2.
+     * <p>
+     * Greedy algorithm.
+     *
+     * @param nums the specified array.
+     * @return the largest sum of the contiguous subarray.
+     */
+    private int maxSubArray2(int[] nums) {
 
-        return -1;
+        int result = Integer.MIN_VALUE;
+        int sum = 0;
+
+        for (int num : nums) {
+
+            // accumulate the value of num.
+            sum += num;
+            // record the maximum value in sum.
+            result = Math.max(result, sum);
+            /*
+             * If the value of sum is less than 0,
+             * discard the previous sequence and restart the calculation.
+             */
+            if (sum < 0) {
+                sum = 0;
+            }
+        }
+        return result;
     }
+
+    /**
+     * Solution3.
+     * <p>
+     * Divide-and-Conquer Algorithm.
+     *
+     * @param nums the specified array.
+     * @return the largest sum of the contiguous subarray.
+     */
+    private int maxSubArray3(int[] nums) {
+        return getInfo(nums, 0, nums.length - 1).mSum;
+    }
+
+    private Status getInfo(int[] a, int l, int r) {
+        if (l == r) {
+            return new Status(a[l], a[l], a[l], a[l]);
+        }
+        int m = (l + r) >> 1;
+        Status lSub = getInfo(a, l, m);
+        Status rSub = getInfo(a, m + 1, r);
+        return pushUp(lSub, rSub);
+    }
+
+    private Status pushUp(Status l, Status r) {
+        int iSum = l.iSum + r.iSum;
+        int lSum = Math.max(l.lSum, l.iSum + r.lSum);
+        int rSum = Math.max(r.rSum, r.iSum + l.rSum);
+        int mSum = Math.max(Math.max(l.mSum, r.mSum), l.rSum + r.lSum);
+        return new Status(lSum, rSum, mSum, iSum);
+    }
+
+    private static class Status {
+        private int lSum, rSum, mSum, iSum;
+
+        private Status(int lSum, int rSum, int mSum, int iSum) {
+            this.lSum = lSum;
+            this.rSum = rSum;
+            this.mSum = mSum;
+            this.iSum = iSum;
+        }
+    }
+
 }
