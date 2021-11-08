@@ -49,8 +49,9 @@ public class MaximumSubarray {
 
         for (int num : nums) {
 
-            // pre is the largest sum of the contiguous subarray.
+            // {@code pre} is the largest sum of the contiguous subarray.
             pre = Math.max(pre + num, num);
+
             // record the maximum value in pre.
             result = Math.max(result, pre);
 
@@ -75,8 +76,10 @@ public class MaximumSubarray {
 
             // accumulate the value of num.
             sum += num;
+
             // record the maximum value in sum.
             result = Math.max(result, sum);
+
             /*
              * If the value of sum is less than 0,
              * discard the previous sequence and restart the calculation.
@@ -89,6 +92,8 @@ public class MaximumSubarray {
     }
 
     /**
+     * TODO Completion algorithm.
+     * <p>
      * Solution3.
      * <p>
      * Divide-and-Conquer Algorithm.

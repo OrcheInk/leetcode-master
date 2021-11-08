@@ -42,7 +42,7 @@ public class LengthOfLastWord {
      * @param s the specified string.
      * @return the length of the last word.
      */
-    public int lengthOfLastWord1(String s) {
+    private int lengthOfLastWord1(String s) {
 
         int length = 0;
 

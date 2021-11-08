@@ -70,7 +70,7 @@ public class MergeTwoSortedLists {
         }
 
         /*
-         * After merging, at most one of l1 and l2 has not been merged,
+         * After merging, at most one of {@code l1} and {@code l2} has not been merged,
          * we can directly point the end of the linked list to the unmerged linked list.
          */
         prev.next = l1 == null ? l2 : l1;

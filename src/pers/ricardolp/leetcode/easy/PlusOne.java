@@ -59,7 +59,7 @@ public class PlusOne {
      * @return increment the large integer by one and return the resulting array of
      *         digits.
      */
-    public int[] plusOne(int[] digits) {
+    private int[] plusOne1(int[] digits) {
 
         for (int i = digits.length - 1; i >= 0; i--) {
 

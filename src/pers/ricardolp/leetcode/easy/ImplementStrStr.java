@@ -42,10 +42,18 @@ public class ImplementStrStr {
     public static void main(String[] args) {
         String haystack = "helyllo", needle = "ll";
         ImplementStrStr implementStrStr = new ImplementStrStr();
-        System.out.println(implementStrStr.strStr(haystack, needle));
+        System.out.println(implementStrStr.strStr1(haystack, needle));
     }
 
-    private int strStr(String haystack, String needle) {
+    /**
+     * TODO Completion algorithm.
+     * <p>
+     * Solution1.
+     *
+     * @param haystack the specified string.
+     * @return the pattern string.
+     */
+    private int strStr1(String haystack, String needle) {
 
         int flag = -1;
         int i, j = 0;

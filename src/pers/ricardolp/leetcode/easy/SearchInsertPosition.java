@@ -72,10 +72,10 @@ public class SearchInsertPosition {
         while (low <= high) {
 
             /*
-             * The >>> treats the values as 32-bit unsigned int,
+             * The {@code >>>} treats the values as 32-bit unsigned int,
              * and the sum of two 31-bit signed ints cannot be larger than
              * a 32-bit unsigned int so there is no overflow for the purpose of this operation.
-             * Note: if you used >> you could have a problem.
+             * Note: if you used {@code >>} you could have a problem.
              */
             int mid = (low + high) >>> 1;
             int midVal = a[mid];
@@ -105,7 +105,7 @@ public class SearchInsertPosition {
      * @param target the target number.
      * @return the index of the target number.
      */
-    private int searchInsert(int[] nums, int target) {
+    private int searchInsert1(int[] nums, int target) {
 
         int low = 0;
         int high = nums.length - 1;
@@ -114,7 +114,7 @@ public class SearchInsertPosition {
         while (low <= high) {
 
             /*
-             * If it is (low + high) / 2, overflow will occur when both
+             * If it is {@code (low + high) / 2}, overflow will occur when both
              * low and high are greater than half of the int range.
              */
             int mid = ((high - low) >> 1) + low;

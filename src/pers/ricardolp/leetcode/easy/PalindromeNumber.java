@@ -46,7 +46,7 @@ public class PalindromeNumber {
      * we have processed half of the digits.
      *
      * @param x an integer.
-     * @return true if x is palindrome integer.
+     * @return {@code true} if {@code x} is palindrome integer.
      */
     private boolean isPalindrome1(int x) {
 
@@ -70,7 +70,7 @@ public class PalindromeNumber {
      * Use mod operation to reverse numbers and compare before and after.
      *
      * @param x an integer.
-     * @return true if x is palindrome integer.
+     * @return {@code true} if {@code x} is palindrome integer.
      */
     private boolean isPalindrome2(int x) {
 
@@ -96,7 +96,7 @@ public class PalindromeNumber {
      * after are equal.
      *
      * @param x an integer.
-     * @return true if x is palindrome integer.
+     * @return {@code true} if {@code x} is palindrome integer.
      */
     private boolean isPalindrome3(int x) {
 
@@ -108,7 +108,9 @@ public class PalindromeNumber {
         }
 
         for (int i = 0; i < str.length() / 2; i++) {
+
             flag = str.charAt(i) == str.charAt(str.length() - 1 - i);
+
             if (!flag) {
                 return false;
             }

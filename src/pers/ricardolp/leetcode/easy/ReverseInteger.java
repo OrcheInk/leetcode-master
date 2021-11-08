@@ -54,10 +54,12 @@ public class ReverseInteger {
         int rev = 0;
 
         while (x != 0) {
+
             // Overflowing when condition is met.
             if (rev < Integer.MIN_VALUE / 10 || rev > Integer.MAX_VALUE / 10) {
                 return 0;
             }
+
             // Break down the number.
             int digit = x % 10;
             x /= 10;

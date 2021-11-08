@@ -75,7 +75,7 @@ public class RemoveElement {
      * @param val the specified value in the array.
      * @return the length of the array after deleting the specified element.
      */
-    public int removeElement1(int[] nums, int val) {
+    private int removeElement1(int[] nums, int val) {
 
         int slow = 0;
 
@@ -107,8 +107,8 @@ public class RemoveElement {
         int right = nums.length;
 
         /*
-         * When the left pointer and the right pointer coincide,
-         * the left and right pointers traverse all the elements in the array.
+         * When the {@code left} pointer and the {@code right} pointer coincide,
+         * the {@code left} and {@code right} pointers traverse all the elements in the array.
          */
         while (left < right) {
 
