@@ -3,7 +3,8 @@ package pers.ricardolp.leetcode.easy;
 /**
  * leetcode_67 : Add Binary.
  * <p>
- * Given two binary strings a and b, return their sum as a binary string.
+ * Given two binary strings {@code a} and {@code b}, return their sum as a
+ * binary string.
  *
  * <pre>
  * Example 1:

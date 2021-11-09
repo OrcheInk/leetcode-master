@@ -3,7 +3,8 @@ package pers.ricardolp.leetcode.easy;
 /**
  * leetcode_9 : Palindrome Number.
  * <p>
- * Given an integer x, return true if x is palindrome integer.
+ * Given an integer {@code x}, return {{@code true} if {@code x} is palindrome
+ * integer.
  * <p>
  * An integer is a palindrome when it reads the same backward as forward. For
  * example, 121 is palindrome while 123 is not.

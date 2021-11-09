@@ -3,8 +3,8 @@ package pers.ricardolp.leetcode.easy;
 /**
  * leetcode_58 : Length of Last Word.
  * <p>
- * Given a string s consisting of some words separated by some number of spaces,
- * return the length of the last word in the string.
+ * Given a string {@code s} consisting of some words separated by some number of
+ * spaces, return the length of the last word in the string.
  * <p>
  * A word is a maximal substring consisting of non-space characters only.
  *

@@ -3,8 +3,8 @@ package pers.ricardolp.leetcode.easy;
 /**
  * leetcode_26 : Remove Duplicates from Sorted Array.
  * <p>
- * Given an integer array nums sorted in non-decreasing order, remove the
- * duplicates in-place such that each unique element appears only once. The
+ * Given an integer array {@code nums} sorted in non-decreasing order, remove
+ * the duplicates in-place such that each unique element appears only once. The
  * relative order of the elements should be kept the same.
  * <p>
  * Since it is impossible to change the length of the array in some languages,

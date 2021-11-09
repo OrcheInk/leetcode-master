@@ -14,7 +14,8 @@ package pers.ricardolp.leetcode.easy;
  * question to ask during an interview.
  * <p>
  * For the purpose of this problem, we will return 0 when needle is an empty
- * string. This is consistent to C's strstr() and Java's indexOf().
+ * string. This is consistent to C's {@code strstr()} and Java's
+ * {@code indexOf()}.
  *
  * <pre>
  * Example 1:

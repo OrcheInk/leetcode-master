@@ -3,8 +3,8 @@ package pers.ricardolp.leetcode.easy;
 /**
  * leetcode_53 : Maximum Subarray.
  * <p>
- * Given an integer array nums, find the contiguous subarray (containing at
- * least one number) which has the largest sum and return its sum.
+ * Given an integer array {@code nums}, find the contiguous subarray (containing
+ * at least one number) which has the largest sum and return its sum.
  * <p>
  * A subarray is a contiguous part of an array.
  *

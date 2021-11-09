@@ -6,8 +6,8 @@ import java.util.Stack;
 /**
  * leetcode_20 : Valid Parentheses.
  * <p>
- * Given a string s containing just the characters '(', ')', '{', '}', '[' and
- * ']', determine if the input string is valid.
+ * Given a string {@code s} containing just the characters '(', ')', '{', '}',
+ * '[' and ']', determine if the input string is valid.
  *
  * <pre>
  * An input string is valid if:
@@ -57,7 +57,7 @@ public class ValidParentheses {
      * {@code true}, otherwise return {@code false}.
      *
      * @param s the string to be verified.
-     * @return is the string valid.
+     * @return {@code true} if the string {@code s} is legal.
      */
     private boolean isValid1(String s) {
 
@@ -104,7 +104,7 @@ public class ValidParentheses {
      * Use arrays to simulate stack operations.
      *
      * @param s the string to be verified.
-     * @return is the string valid.
+     * @return {@code true} if the string {@code s} is legal.
      */
     private boolean isValid2(String s) {
 
@@ -157,7 +157,8 @@ public class ValidParentheses {
      * </pre>
      *
      * @param s the string to be verified.
-     * @return is the string valid.
+     * @return {@code true} if the string {@code s} is legal, {@code false}
+     *         otherwise.
      */
     private boolean isValid3(String s) {
 
