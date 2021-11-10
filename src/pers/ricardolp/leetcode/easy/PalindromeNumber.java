@@ -29,10 +29,11 @@ package pers.ricardolp.leetcode.easy;
  * Example 4:
  * Input: x = -101
  * Output: false
+ * </pre>
  *
  * Constraints:
- * -2<sup>31</sup><= x <= 2<sup>31</sup> - 1
- * </pre>
+ * <p>
+ * -2<sup>31</sup> {@code <=} x {@code <=} 2<sup>31</sup> - 1
  *
  * @author RicardoLP
  * @since 2021/10/21
@@ -46,8 +47,9 @@ public class PalindromeNumber {
      * original number is less than or equal to the inverted number, it means that
      * we have processed half of the digits.
      *
-     * @param x an integer.
-     * @return {@code true} if {@code x} is palindrome integer.
+     * @param x the number to determine whether it is a palindrome.
+     * @return {@code true} if {@code x} is palindrome integer,{@code false}
+     *         otherwise.
      */
     private boolean isPalindrome1(int x) {
 
@@ -70,8 +72,9 @@ public class PalindromeNumber {
      * <p>
      * Use mod operation to reverse numbers and compare before and after.
      *
-     * @param x an integer.
-     * @return {@code true} if {@code x} is palindrome integer.
+     * @param x the number to determine whether it is a palindrome.
+     * @return {@code true} if {@code x} is palindrome integer,{@code false}
+     *         otherwise.
      */
     private boolean isPalindrome2(int x) {
 
@@ -96,8 +99,9 @@ public class PalindromeNumber {
      * Convert the number into a string, and judge whether the characters before and
      * after are equal.
      *
-     * @param x an integer.
-     * @return {@code true} if {@code x} is palindrome integer.
+     * @param x the number to determine whether it is a palindrome.
+     * @return {@code true} if {@code x} is palindrome integer,{@code false}
+     *         otherwise.
      */
     private boolean isPalindrome3(int x) {
 

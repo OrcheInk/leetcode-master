@@ -39,13 +39,13 @@ package pers.ricardolp.leetcode.easy;
  * Explanation: The array represents the integer 9.
  * Incrementing by one gives 9 + 1 = 10.
  * Thus, the result should be [1,0].
+ * </pre>
  *
  * Constraints:
- *
- * 1 <= digits.length <= 100
- * 0 <= digits[i] <= 9
+ * <p>
+ * 1 {@code <=} digits.length {@code <=} 100 <br>
+ * 0 {@code <=} digits[i] {@code <=} 9 <br>
  * digits does not contain any leading 0's.
- * </pre>
  *
  * @author RicardoLP
  * @since 2021/11/7
@@ -55,9 +55,9 @@ public class PlusOne {
     /**
      * Solution1.
      *
-     * @param digits the specified array.
-     * @return increment the large integer by one and return the resulting array of
-     *         digits.
+     * @param digits the integer array to be calculated .
+     * @return the integer array obtained by adding one after the original array is
+     *         converted to an integer.
      */
     private int[] plusOne1(int[] digits) {
 

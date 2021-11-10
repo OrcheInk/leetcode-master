@@ -8,14 +8,10 @@ package pers.ricardolp.leetcode.easy.other;
  */
 public class ListNode {
 
-    /**
-     * Current node value.
-     */
+    /** Current node value. */
     public int val;
 
-    /**
-     * The next node.
-     */
+    /** The next node. */
     public ListNode next;
 
     ListNode() {}

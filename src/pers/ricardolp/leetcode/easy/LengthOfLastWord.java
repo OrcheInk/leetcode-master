@@ -23,13 +23,13 @@ package pers.ricardolp.leetcode.easy;
  * Input: s = "luffy is still joyboy"
  * Output: 6
  * Explanation: The last word is "joyboy" with length 6.
+ * </pre>
  *
  * Constraints:
- *
- * 1 <= s.length <= 10<sup>4</sup>
- * s consists of only English letters and spaces ' '.
- * There will be at least one word in s.
- * </pre>
+ * <p>
+ * 1 {@code} <= s.length {@code} <= 10<sup>4</sup> <br>
+ * {@code s} consists of only English letters and spaces ' '. <br>
+ * There will be at least one word in {@code s}.
  *
  * @author RicardoLP
  * @since 2021/11/6
@@ -39,8 +39,9 @@ public class LengthOfLastWord {
     /**
      * Solution1.
      *
-     * @param s the specified string.
-     * @return the length of the last word.
+     * @param s the string for which the length of the last word needs to be
+     *            calculated.
+     * @return the length of the last word in {@code s}.
      */
     private int lengthOfLastWord1(String s) {
 
@@ -57,4 +58,5 @@ public class LengthOfLastWord {
         }
         return length;
     }
+
 }

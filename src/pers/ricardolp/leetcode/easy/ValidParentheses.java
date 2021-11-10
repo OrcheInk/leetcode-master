@@ -34,12 +34,12 @@ import java.util.Stack;
  * Example 5:
  * Input: s = "{[]}"
  * Output: true
+ * </pre>
  *
  * Constraints:
- *
- * 1 <= s.length <= 10<sup>4</sup>
- * s consists of parentheses only '()[]{}'.
- * </pre>
+ * <p>
+ * 1 {@code <=} s.length {@code <=} 10<sup>4</sup> <br>
+ * {@code s} consists of parentheses only '()[]{}'.
  *
  * @author RicardoLP
  * @since 2021/10/30
@@ -53,11 +53,12 @@ public class ValidParentheses {
      * "stack".
      * <p>
      * After the traversal is over, if there is no left parenthesis in the stack, it
-     * means that we close all the left parentheses in the string s and return
-     * {@code true}, otherwise return {@code false}.
+     * means that we close all the left parentheses in the string {@code s} and
+     * return {@code true}, otherwise return {@code false}.
      *
      * @param s the string to be verified.
-     * @return {@code true} if the string {@code s} is legal.
+     * @return {@code true} if the string {@code s} is legal, {@code false}
+     *         otherwise.
      */
     private boolean isValid1(String s) {
 
@@ -104,7 +105,8 @@ public class ValidParentheses {
      * Use arrays to simulate stack operations.
      *
      * @param s the string to be verified.
-     * @return {@code true} if the string {@code s} is legal.
+     * @return {@code true} if the string {@code s} is legal, {@code false}
+     *         otherwise.
      */
     private boolean isValid2(String s) {
 
@@ -190,7 +192,8 @@ public class ValidParentheses {
      * loop, if the string is empty, it is a legal string.
      *
      * @param s the string to be verified.
-     * @return is the string valid.
+     * @return {@code true} if the string {@code s} is legal, {@code false}
+     *         otherwise.
      */
     private boolean isValid4(String s) {
 

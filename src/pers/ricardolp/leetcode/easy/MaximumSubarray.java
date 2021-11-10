@@ -21,14 +21,15 @@ package pers.ricardolp.leetcode.easy;
  * Example 3:
  * Input: nums = [5,4,-1,7,8]
  * Output: 23
+ * </pre>
  *
  * Constraints:
- *
- * 1 <= nums.length <= 10<sup>5</sup>
- * -10<sup>4</sup> <= nums[i] <= 10<sup>4</sup>
- *
- * Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
- * </pre>
+ * <p>
+ * 1 {@code <=} nums.length {@code <=} 10<sup>5</sup> <br>
+ * -10<sup>4</sup> {@code <=} nums[i] {@code <=} 10<sup>4</sup>
+ * <p>
+ * <b>Follow up:</b> If you have figured out the O(n) solution, try coding
+ * another solution using the divide and conquer approach, which is more subtle.
  *
  * @author RicardoLP
  * @since 2021/11/5
@@ -40,8 +41,9 @@ public class MaximumSubarray {
      * <p>
      * Dynamic programming.
      *
-     * @param nums the specified array.
-     * @return the largest sum of the contiguous subarray.
+     * @param nums the array that needs to be calculated the largest sum of the
+     *            contiguous subarray.
+     * @return the largest sum of the contiguous subarray in {@code nums}.
      */
     private int maxSubArray1(int[] nums) {
 
@@ -49,7 +51,7 @@ public class MaximumSubarray {
 
         for (int num : nums) {
 
-            // {@code pre} is the largest sum of the contiguous subarray.
+            // pre is the largest sum of the contiguous subarray.
             pre = Math.max(pre + num, num);
 
             // record the maximum value in pre.
@@ -64,8 +66,9 @@ public class MaximumSubarray {
      * <p>
      * Greedy algorithm.
      *
-     * @param nums the specified array.
-     * @return the largest sum of the contiguous subarray.
+     * @param nums the array that needs to be calculated the largest sum of the
+     *            contiguous subarray.
+     * @return the largest sum of the contiguous subarray in {@code nums}.
      */
     private int maxSubArray2(int[] nums) {
 
@@ -98,8 +101,9 @@ public class MaximumSubarray {
      * <p>
      * Divide-and-Conquer Algorithm.
      *
-     * @param nums the specified array.
-     * @return the largest sum of the contiguous subarray.
+     * @param nums the array that needs to be calculated the largest sum of the
+     *            contiguous subarray.
+     * @return the largest sum of the contiguous subarray in {@code nums}.
      */
     private int maxSubArray3(int[] nums) {
         return getInfo(nums, 0, nums.length - 1).mSum;

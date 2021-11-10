@@ -14,13 +14,13 @@ package pers.ricardolp.leetcode.easy;
  * Example 2:
  * Input: a = "1010", b = "1011"
  * Output: "10101"
+ * </pre>
  *
  * Constraints:
- *
- * 1 <= a.length, b.length <= 10<sup>4</sup>
- * a and b consist only of '0' or '1' characters.
+ * <p>
+ * 1 {@code <=} a.length, b.length {@code <=} 10<sup>4</sup> <br>
+ * {@code a} and {@code b} consist only of '0' or '1' characters. <br>
  * Each string does not contain leading zeros except for the zero itself.
- * </pre>
  *
  * @author RicardoLP
  * @since 2021/11/8
@@ -33,15 +33,15 @@ public class AddBinary {
      * Traverse from the lowest bit.
      * <p>
      * We use a variable {@code carry} to represent the carry of the previous
-     * position, with an initial value of 0.
+     * position, with an initial value of {@code 0}.
      * <p>
      * Remember the two digits aligned at the current position are {@code aInt} and
      * {@code bInt}, then the answer for each digit is
      * {@code (aInt + bInt + carry) % 2}, and the carry of the next digit is
      * {@code (aInt + bInt + carry) / 2}.
      *
-     * @param a the specified binary string.
-     * @param b the specified binary string.
+     * @param a the binary string to be added.
+     * @param b the binary string to be added.
      * @return the binary string after addition.
      */
     private String addBinary1(String a, String b) {
@@ -60,9 +60,9 @@ public class AddBinary {
         while (carry != 0 || j >= 0 || i >= 0) {
 
             /*
-             * Add '0' to the shorter of the {@code a} and {@code b} until they are the same length.
+             * Add '0' to the shorter of the a and b until they are the same length.
              *
-             * Because char[] returns char, so  {@code - '0'} converts it to an integer.
+             * Because char[] returns char, so - '0' converts it to an integer.
              */
             int aInt = i >= 0 ? aChars[i] - '0' : 0;
             int bInt = j >= 0 ? bChars[j] - '0' : 0;
@@ -80,4 +80,5 @@ public class AddBinary {
         }
         return result.reverse().toString();
     }
+
 }

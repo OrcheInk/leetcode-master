@@ -11,20 +11,22 @@ package pers.ricardolp.leetcode.easy;
  * you must instead have the result be placed in the first part of the array
  * {@code nums}.
  * <p>
- * More formally, if there are k elements after removing the duplicates, then
- * the first k elements of {@code nums} should hold the final result. It does
- * not matter what you leave beyond the first k elements.
+ * More formally, if there are <i>k</i> elements after removing the duplicates,
+ * then the first <i>k</i> elements of {@code nums} should hold the final
+ * result. It does not matter what you leave beyond the first <i>k</i> elements.
  * <p>
- * Return k after placing the final result in the first k slots of {@code nums}.
+ * Return <i>k</i> after placing the final result in the first <i>k</i> slots of
+ * {@code nums}.
  * <p>
  * Do not allocate extra space for another array. You must do this by modifying
  * the input array in-place with O(1) extra memory.
- *
- * <pre>
+ * <p>
  * <b>Custom Judge:</b>
- *
+ * <p>
  * The judge will test your solution with the following code:
  *
+ * <pre>
+ * {@code
  * int[] nums = [...]; // Input array
  * int val = ...; // Value to remove
  * int[] expectedNums = [...]; // The expected answer with correct length.
@@ -37,6 +39,7 @@ package pers.ricardolp.leetcode.easy;
  * for (int i = 0; i < actualLength; i++) {
  *     assert nums[i] == expectedNums[i];
  * }
+ *}
  *
  * If all assertions pass, then your solution will be accepted.
  *
@@ -52,13 +55,13 @@ package pers.ricardolp.leetcode.easy;
  * Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
  * Note that the five elements can be returned in any order.
  * It does not matter what you leave beyond the returned k (hence they are underscores).
+ * </pre>
  *
  * Constraints:
- *
- * 0 <= nums.length <= 100
- * 0 <= nums[i] <= 50
- * 0 <= val <= 100
- * </pre>
+ * <p>
+ * 0 {@code <=} nums.length {@code <=} 100 <br>
+ * 0 {@code <=} nums[i] {@code <=} 50 <br>
+ * 0 {@code <=} val {@code <=} 100
  *
  * @author RicardoLP
  * @since 2021/11/3
@@ -72,9 +75,10 @@ public class RemoveElement {
      * <p>
      * Use double pointer method.
      *
-     * @param nums the specified array.
-     * @param val the specified value in the array.
-     * @return the length of the array after deleting the specified element.
+     * @param nums the integer array to delete the specified element.
+     * @param val the specified element to delete in the {@code nums}.
+     * @return the length of {@code nums} after deleting the specified element
+     *         {@code val}.
      */
     private int removeElement1(int[] nums, int val) {
 
@@ -98,9 +102,10 @@ public class RemoveElement {
      * <p>
      * Use double pointer method.
      *
-     * @param nums the specified array.
-     * @param val the specified value in the array.
-     * @return the length of the array after deleting the specified element.
+     * @param nums the integer array to delete the specified element.
+     * @param val the specified element to delete in the {@code nums}.
+     * @return the length of {@code nums} after deleting the specified element
+     *         {@code val}.
      */
     private int removeElement2(int[] nums, int val) {
 
@@ -108,8 +113,8 @@ public class RemoveElement {
         int right = nums.length;
 
         /*
-         * When the {@code left} pointer and the {@code right} pointer coincide,
-         * the {@code left} and {@code right} pointers traverse all the elements in the array.
+         * When the left pointer and the right pointer coincide,
+         * the left and right pointers traverse all the elements in the array.
          */
         while (left < right) {
 

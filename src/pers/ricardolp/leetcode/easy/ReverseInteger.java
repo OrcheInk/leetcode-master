@@ -7,7 +7,7 @@ package pers.ricardolp.leetcode.easy;
  * reversed.
  * <p>
  * If reversing {@code x} causes the value to go outside the signed 32-bit
- * integer range [-2<sup>31</sup>, 2<sup>31</sup> - 1], then return 0.
+ * integer range [-2<sup>31</sup>, 2<sup>31</sup> - 1], then return {@code 0}.
  * <p>
  * Assume the environment does not allow you to store 64-bit integers (signed or
  * unsigned).
@@ -28,11 +28,11 @@ package pers.ricardolp.leetcode.easy;
  * Example 4:
  * Input: x = 0
  * Output: 0
+ * </pre>
  *
  * Constraints:
- *
- * -2<sup>31</sup> <= x <= 2<sup>31</sup> - 1
- * </pre>
+ * <p>
+ * -2<sup>31</sup> {@code <=} x {@code <=} 2<sup>31</sup> - 1
  *
  * @author RicardoLP
  * @since 2021/9/5
@@ -48,7 +48,7 @@ public class ReverseInteger {
      * {@code rev < Integer.MIN_VALUE / 10 || rev > Integer.MAX_VALUE / 10} is met.
      *
      * @param x the number to be reversed.
-     * @return inverted number, or 0 when overflowing.
+     * @return {@code 0} if overflow, the inverted number otherwise.
      */
     private int reverse1(int x) {
 
@@ -75,12 +75,13 @@ public class ReverseInteger {
      * Use {@code String} to reverse the number.
      *
      * @param x the number to be reversed.
-     * @return inverted number, or 0 when overflowing.
+     * @return {@code 0} if overflow, the inverted number otherwise.
      */
     private int reverse2(int x) {
 
         String valueStr = String.valueOf(x);
         String str = valueStr;
+
         // Mark symbol.
         int flag = 1;
 

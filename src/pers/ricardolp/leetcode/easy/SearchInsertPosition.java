@@ -3,9 +3,9 @@ package pers.ricardolp.leetcode.easy;
 /**
  * leetcode_35 : Search Insert Position.
  * <p>
- * Given a sorted array of distinct integers and a target value, return the
- * index if the target is found. If not, return the index where it would be if
- * it were inserted in order.
+ * Given a sorted array of distinct integers and a {@code target} value, return
+ * the index if the {@code target} is found. If not, return the index where it
+ * would be if it were inserted in order.
  * <p>
  * You must write an algorithm with O(log n) runtime complexity.
  *
@@ -29,14 +29,14 @@ package pers.ricardolp.leetcode.easy;
  * Example 5:
  * Input: nums = [1], target = 0
  * Output: 0
+ * </pre>
  *
  * Constraints:
- *
- * 1 <= nums.length <= 10<sup>4</sup>
- * -10<sup>4</sup> <= nums[i] <= 10<sup>4</sup>
- * nums contains distinct values sorted in ascending order.
- * -10<sup>4</sup> <= target <= 10<sup>4</sup>
- * </pre>
+ * <p>
+ * 1 {@code <=} nums.length {@code <=} 10<sup>4</sup> <br>
+ * -10<sup>4</sup> {@code <=} nums[i] {@code <=} 10<sup>4</sup> <br>
+ * {@code nums} contains distinct values sorted in ascending order. <br>
+ * -10<sup>4</sup> {@code <=} target {@code <=} 10<sup>4</sup>
  *
  * @author RicardoLP
  * @since 2021/11/4
@@ -72,10 +72,10 @@ public class SearchInsertPosition {
         while (low <= high) {
 
             /*
-             * The {@code >>>} treats the values as 32-bit unsigned int,
+             * The >>> treats the values as 32-bit unsigned int,
              * and the sum of two 31-bit signed ints cannot be larger than
              * a 32-bit unsigned int so there is no overflow for the purpose of this operation.
-             * Note: if you used {@code >>} you could have a problem.
+             * Note: if you used >> you could have a problem.
              */
             int mid = (low + high) >>> 1;
             int midVal = a[mid];
@@ -101,9 +101,11 @@ public class SearchInsertPosition {
      * <p>
      * Time complexity O(log n).
      *
-     * @param nums the specified array.
-     * @param target the target number.
-     * @return the index of the target number.
+     * @param nums the array to be searched.
+     * @param target the value to be searched for in {@code nums}.
+     *
+     * @return the index of the {@code target} if the target is found,the index of
+     *         the insertion position otherwise.
      */
     private int searchInsert1(int[] nums, int target) {
 
@@ -114,7 +116,7 @@ public class SearchInsertPosition {
         while (low <= high) {
 
             /*
-             * If it is {@code (low + high) / 2}, overflow will occur when both
+             * If it is (low + high) / 2, overflow will occur when both
              * low and high are greater than half of the int range.
              */
             int mid = ((high - low) >> 1) + low;

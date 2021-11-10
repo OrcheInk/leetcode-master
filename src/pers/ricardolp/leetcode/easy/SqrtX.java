@@ -21,11 +21,11 @@ package pers.ricardolp.leetcode.easy;
  * Input: x = 8
  * Output: 2
  * Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned.
+ * </pre>
  *
  * Constraints:
- *
- * 0 <= x <= 2<sup>31</sup> - 1
- * </pre>
+ * <p>
+ * 0 {@code <=} x {@code <=} 2<sup>31</sup> - 1
  *
  * @author RicardoLP
  * @since 2021/11/9

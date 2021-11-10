@@ -26,17 +26,18 @@ import java.util.HashMap;
  * Example 3:
  * Input: nums = [3,3], target = 6
  * Output: [0,1]
+ * </pre>
  *
  * Constraints:
- *
- * 2 <= nums.length <= 10<sup>4</sup>
- * -10<sup>9</sup> <= nums[i] <= 10<sup>9</sup>
- * -10<sup>9</sup> <= target <= 10<sup>9</sup>
+ * <p>
+ * 2 {@code <=} nums.length {@code <=} 10<sup>4</sup> <br>
+ * -10<sup>9</sup> {@code <=} nums[i] {@code <=} 10<sup>9</sup> <br>
+ * -10<sup>9</sup> {@code <=} target {@code <=} 10<sup>9</sup> <br>
  * Only one valid answer exists.
- *
- * Follow-up: Can you come up with an algorithm that is less than
+ * <p>
+ * <b>Follow-up:</b> Can you come up with an algorithm that is less than
  * O(n<sup>2</sup>) time complexity?
- * </pre>
+ *
  *
  * @author RicardoLP
  * @since 2021/9/4
@@ -53,9 +54,11 @@ public class TwoSum {
      * If there is, return the current {@code i} and {@code hashMap.get(nums[i])} as
      * the indices.
      *
-     * @param nums array of integers.
-     * @param target target of integer.
-     * @return indices of the two numbers such that they add up to target.
+     * @param nums the integer array to find the subscripts of the elements whose
+     *            addition is equal to target.
+     * @param target the target of integer.
+     * @return the indices of the two numbers such that they add up to
+     *         {@code target}.
      */
     private int[] twoSum1(int[] nums, int target) {
 
@@ -78,11 +81,13 @@ public class TwoSum {
      * Solution2.
      * <p>
      * Use two for loops to traverse, return two subscripts when they add up to the
-     * target.
+     * {@code target}.
      *
-     * @param nums array of integers
-     * @param target target of integer.
-     * @return indices of the two numbers such that they add up to target.
+     * @param nums the integer array to find the subscripts of the elements whose
+     *            addition is equal to target.
+     * @param target the target of integer.
+     * @return the indices of the two numbers such that they add up to
+     *         {@code target}.
      */
     private int[] twoSum2(int[] nums, int target) {
 

@@ -58,13 +58,15 @@ import java.util.HashMap;
  * Input: s = "MCMXCIV"
  * Output: 1994
  * Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+ * </pre>
  *
  * Constraints:
- *
- * 1 <= s.length <= 15
- * s contains only the characters ('I', 'V', 'X', 'L', 'C','D', 'M').
- * It is guaranteed that s is a valid roman numeral in the range [1, 3999].
- * </pre>
+ * <p>
+ * 1 {@code <=} s.length {@code <=} 15 <br>
+ * {@code s} contains only the characters ('I', 'V', 'X', 'L', 'C','D', 'M').
+ * <br>
+ * It is guaranteed that {@code s} is a valid roman numeral in the range [1,
+ * 3999].
  *
  * @author RicardoLP
  * @since 2021/10/29
@@ -77,8 +79,8 @@ public class RomanToInteger {
      * Use switch to determine the value corresponding to the Roman numeral
      * character.
      *
-     * @param s Roman numeral string to be recognized.
-     * @return Roman numeral corresponding value.
+     * @param s the Roman numeral string to be recognized.
+     * @return the integer corresponding to {@code s}.
      */
     private int romanToInt1(String s) {
 
@@ -133,8 +135,8 @@ public class RomanToInteger {
      * Use HashMap to type in the value corresponding to the Roman numeral
      * character.
      *
-     * @param s Roman numeral string to be recognized.
-     * @return Roman numeral corresponding value.
+     * @param s the Roman numeral string to be recognized.
+     * @return the integer corresponding to {@code s}.
      */
     private int romanToInt2(String s) {
 
@@ -168,8 +170,8 @@ public class RomanToInteger {
      * <p>
      * Use {@code replace} to replace special cases, and then perform calculations.
      *
-     * @param s Roman numeral string to be recognized.
-     * @return Roman numeral corresponding value.
+     * @param s the Roman numeral string to be recognized.
+     * @return the integer corresponding to {@code s}.
      */
     private int romanToInt3(String s) {
 
@@ -191,8 +193,8 @@ public class RomanToInteger {
     /**
      * Get the value represented by the specified Roman numeral.
      *
-     * @param c Roman numeral character.
-     * @return value corresponding to Roman numeral character.
+     * @param c the Roman numeral character.
+     * @return the value corresponding to {@code c}.
      */
     private int getValue(char c) {
 

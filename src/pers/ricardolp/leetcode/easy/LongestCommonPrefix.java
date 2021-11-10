@@ -15,13 +15,13 @@ package pers.ricardolp.leetcode.easy;
  * Input: strs = ["dog","racecar","car"]
  * Output: ""
  * Explanation: There is no common prefix amongst the input strings.
+ * </pre>
  *
  * Constraints:
- *
- * 1 <= strs.length <= 200
- * 0 <= strs[i].length <= 200
- * strs[i] consists of only lower-case English letters.
- * </pre>
+ * <p>
+ * 1 {@code <=} strs.length {@code <=} 200 <br>
+ * 0 {@code <=} strs[i].length {@code} <= 200 <br>
+ * {@code strs[i]} consists of only lower-case English letters.
  *
  * @author RicardoLP
  * @since 2021/10/30
@@ -37,8 +37,9 @@ public class LongestCommonPrefix {
      * After traversing all the strings, you can get the longest common prefix in
      * the string array.
      *
-     * @param strs string array.
-     * @return longest the common prefix.
+     * @param strs the string array for which the longest common prefix needs to be
+     *            found.
+     * @return the longest common prefix of {@code strs}.
      */
     private String longestCommonPrefix1(String[] strs) {
 
@@ -51,6 +52,7 @@ public class LongestCommonPrefix {
 
         for (String string : strs) {
             while (!string.startsWith(prefix)) {
+
                 // Make it shorter if the common prefix does not match.
                 prefix = prefix.substring(0, prefix.length() - 1);
             }
@@ -68,8 +70,9 @@ public class LongestCommonPrefix {
      * the same, the current column no longer belongs to the common prefix, and the
      * part before the current column is the longest Common prefix.
      *
-     * @param strs string array.
-     * @return longest the common prefix.
+     * @param strs the string array for which the longest common prefix needs to be
+     *            found.
+     * @return the longest common prefix of {@code strs}.
      */
     private String longestCommonPrefix2(String[] strs) {
 
@@ -82,10 +85,7 @@ public class LongestCommonPrefix {
 
             for (int j = 1; j < count; j++) {
 
-                /*
-                 * {@code i == strs[j].length()} explain that {@code str[j]} is one bit longer
-                 * than {@code str[0]}.
-                 */
+                // i == strs[j].length() explain that str[j] is one bit longer than str[0].
                 if (i == strs[j].length() || strs[j].charAt(i) != c) {
 
                     // Make it shorter if the common prefix does not match.

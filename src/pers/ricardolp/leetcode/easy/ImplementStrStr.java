@@ -5,16 +5,16 @@ package pers.ricardolp.leetcode.easy;
  * <p>
  * Implement strStr().
  * <p>
- * Return the index of the first occurrence of needle in the haystack, or -1 if
- * needle is not part of haystack.
+ * Return the index of the first occurrence of needle in the {@code haystack},
+ * or {@code -1} if {@code needle} is not part of {@code haystack}.
  * <p>
  * <b>Clarification:</b>
  * <p>
- * What should we return when needle is an empty string? This is a great
+ * What should we return when {@code needle} is an empty string? This is a great
  * question to ask during an interview.
  * <p>
- * For the purpose of this problem, we will return 0 when needle is an empty
- * string. This is consistent to C's {@code strstr()} and Java's
+ * For the purpose of this problem, we will return {@code 0} when {@code needle}
+ * is an empty string. This is consistent to C's {@code strstr()} and Java's
  * {@code indexOf()}.
  *
  * <pre>
@@ -29,12 +29,14 @@ package pers.ricardolp.leetcode.easy;
  * Example 3:
  * Input: haystack = "", needle = ""
  * Output: 0
+ * </pre>
  *
  * Constraints:
- *
- * 0 <= haystack.length, needle.length <= 5 * 10<sup>4</sup>
- * The haystack and needle consist of only lower-case English characters.
- * </pre>
+ * <p>
+ * 0 {@code <=} haystack.length, needle.length {@code <=} 5 * 10<sup>4</sup>
+ * <br>
+ * The {@code haystack} and {@code needle} consist of only lower-case English
+ * characters.
  *
  * @author RicardoLP
  * @since 2021/11/3
@@ -69,4 +71,5 @@ public class ImplementStrStr {
 
         return i;
     }
+
 }

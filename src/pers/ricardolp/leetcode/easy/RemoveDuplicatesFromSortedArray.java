@@ -9,20 +9,23 @@ package pers.ricardolp.leetcode.easy;
  * <p>
  * Since it is impossible to change the length of the array in some languages,
  * you must instead have the result be placed in the first part of the array
- * nums. More formally, if there are k elements after removing the duplicates,
- * then the first k elements of nums should hold the final result. It does not
- * matter what you leave beyond the first k elements.
+ * {@code nums}. More formally, if there are <i>k</i> elements after removing
+ * the duplicates, then the first <i>k</i> elements of {@code nums} should hold
+ * the final result. It does not matter what you leave beyond the first <i>k</i>
+ * elements.
  * <p>
- * Return k after placing the final result in the first k slots of nums.
+ * Return <i>k</i> after placing the final result in the first <i>k</i> slots of
+ * {@code nums}.
  * <p>
  * Do not allocate extra space for another array. You must do this by modifying
  * the input array in-place with O(1) extra memory.
- *
- * <pre>
+ * <p>
  * <b>Custom Judge:</b>
- *
+ * <p>
  * The judge will test your solution with the following code:
  *
+ * <pre>
+ * {@code
  * // Input array.
  * int[] nums = [...];
  * // The expected answer with correct length.
@@ -34,6 +37,7 @@ package pers.ricardolp.leetcode.easy;
  * assert k == expectedNums.length;
  * for (int i = 0; i < k; i++) {
  *      assert nums[i] == expectedNums[i];
+ * }
  * }
  *
  * If all assertions pass, then your solution will be accepted.
@@ -49,13 +53,13 @@ package pers.ricardolp.leetcode.easy;
  * Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
  * Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
  * It does not matter what you leave beyond the returned k (hence they are underscores).
+ * </pre>
  *
  * Constraints:
- *
- * 0 <= nums.length <= 3 * 10<sup>4</sup>
- * -100 <= nums[i] <= 100
- * nums is sorted in non-decreasing order.
- * </pre>
+ * <p>
+ * 0 {@code <=} nums.length {@code <}= 3 * 10<sup>4</sup> <br>
+ * -100 {@code <=} nums[i] {@code <=} 100 <br>
+ * {@code nums} is sorted in non-decreasing order.
  *
  * @author RicardoLP
  * @since 2021/11/2
@@ -67,8 +71,8 @@ public class RemoveDuplicatesFromSortedArray {
      * <p>
      * Delete duplicate elements by double pointer method.
      *
-     * @param nums the array that needs to be deduplicated.
-     * @return the number of distinct elements in the array.
+     * @param nums the integer array to be deduplicated.
+     * @return the number of distinct elements in {@code nums}.
      */
     private int removeDuplicates1(int[] nums) {
 
@@ -91,8 +95,8 @@ public class RemoveDuplicatesFromSortedArray {
      * <p>
      * Delete duplicate elements by double pointer method.
      *
-     * @param nums the array that needs to be deduplicated.
-     * @return the number of distinct elements in the array.
+     * @param nums the integer array to be deduplicated.
+     * @return the number of distinct elements in {@code nums}.
      */
     private int removeDuplicates2(int[] nums) {
 
@@ -113,8 +117,8 @@ public class RemoveDuplicatesFromSortedArray {
      * <p>
      * Replace the repeated elements in the array before rearranging them.
      *
-     * @param nums the array that needs to be deduplicated.
-     * @return the number of distinct elements in the array.
+     * @param nums the integer array to be deduplicated.
+     * @return the number of distinct elements in {@code nums}.
      */
     private int removeDuplicates3(int[] nums) {
 
