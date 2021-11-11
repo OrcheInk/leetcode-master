@@ -197,38 +197,53 @@ public class RomanToInteger {
      * @return the value corresponding to {@code c}.
      */
     private int getValue(char c) {
+        int result;
 
         switch (c) {
             case 'I':
-                return 1;
+                result = 1;
+                break;
             case 'V':
-                return 5;
+                result = 5;
+                break;
             case 'X':
-                return 10;
+                result = 10;
+                break;
             case 'L':
-                return 50;
+                result = 50;
+                break;
             case 'C':
-                return 100;
+                result = 100;
+                break;
             case 'D':
-                return 500;
+                result = 500;
+                break;
             case 'M':
-                return 1000;
+                result = 1000;
+                break;
             case 'a':
-                return 4;
+                result = 4;
+                break;
             case 'b':
-                return 9;
+                result = 9;
+                break;
             case 'c':
-                return 40;
+                result = 40;
+                break;
             case 'd':
-                return 90;
+                result = 90;
+                break;
             case 'e':
-                return 400;
+                result = 400;
+                break;
             case 'f':
-                return 900;
+                result = 900;
+                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + c);
         }
 
+        return result;
     }
 
 }

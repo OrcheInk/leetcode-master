@@ -61,42 +61,46 @@ public class ValidParentheses {
      *         otherwise.
      */
     private boolean isValid1(String s) {
+        boolean result = true;
 
         int length = s.length();
         // If the string length is odd, return false.
         if (length % 2 == 1) {
-            return false;
-        }
+            result = false;
+        } else {
 
-        /*
-         * In order to quickly determine the type of parentheses, we can use a hash
-         * table to store each type of parentheses.
-         */
-        HashMap<Character, Character> hash = new HashMap<>(3);
+            /*
+             * In order to quickly determine the type of parentheses,
+             * we can use a hash table to store each type of parentheses.
+             */
+            HashMap<Character, Character> hash = new HashMap<>(3);
+            hash.put(')', '(');
+            hash.put('}', '{');
+            hash.put(']', '[');
+            Stack<Character> stack = new Stack<>();
+            for (int i = 0; i < length; i++) {
 
-        hash.put(')', '(');
-        hash.put('}', '{');
-        hash.put(']', '[');
+                char ch = s.charAt(i);
 
-        Stack<Character> stack = new Stack<>();
+                if (hash.containsKey(ch)) {
+                    // Determine whether the current bracket matches the top of the stack.
+                    if (stack.isEmpty() || !stack.peek().equals(hash.get(ch))) {
+                        result = false;
+                        break;
+                    } else {
+                        stack.pop();
+                    }
 
-        for (int i = 0; i < length; i++) {
-
-            char ch = s.charAt(i);
-
-            if (hash.containsKey(ch)) {
-                // Determine whether the current bracket matches the top of the stack.
-                if (stack.isEmpty() || !stack.peek().equals(hash.get(ch))) {
-                    return false;
                 } else {
-                    stack.pop();
+                    stack.push(ch);
                 }
-
-            } else {
-                stack.push(ch);
+            }
+            if (result) {
+                result = stack.isEmpty();
             }
         }
-        return stack.isEmpty();
+
+        return result;
     }
 
     /**
@@ -109,37 +113,44 @@ public class ValidParentheses {
      *         otherwise.
      */
     private boolean isValid2(String s) {
+        boolean result = true;
 
         // If the string length is odd, return false.
         if (s.length() % 2 == 1) {
-            return false;
-        }
+            result = false;
+        } else {
+            int count = 1;
+            char[] array = new char[s.length() + 1];
+            for (int i = 0; i < s.length(); i++) {
 
-        int count = 1;
-        char[] array = new char[s.length() + 1];
+                char c = s.charAt(i);
 
-        for (int i = 0; i < s.length(); i++) {
-
-            char c = s.charAt(i);
-
-            if (c == '(' || c == '[' || c == '{') {
-                // Push.
-                array[count++] = c;
-            } else {
-                // Pop.
-                count--;
-                if (array[count] != '(' && c == ')') {
-                    return false;
-                }
-                if (array[count] != '[' && c == ']') {
-                    return false;
-                }
-                if (array[count] != '{' && c == '}') {
-                    return false;
+                if (c == '(' || c == '[' || c == '{') {
+                    // Push.
+                    array[count++] = c;
+                } else {
+                    // Pop.
+                    count--;
+                    if (array[count] != '(' && c == ')') {
+                        result = false;
+                        break;
+                    }
+                    if (array[count] != '[' && c == ']') {
+                        result = false;
+                        break;
+                    }
+                    if (array[count] != '{' && c == '}') {
+                        result = false;
+                        break;
+                    }
                 }
             }
+            if (result) {
+                result = count == 1;
+            }
         }
-        return count == 1;
+
+        return result;
     }
 
     /**
@@ -196,18 +207,18 @@ public class ValidParentheses {
      *         otherwise.
      */
     private boolean isValid4(String s) {
+        boolean result = false;
 
         // If the string length is odd, return false.
-        if (s.length() % 2 == 1) {
-            return false;
+        if (s.length() % 2 != 1) {
+            int length = s.length() / 2;
+            for (int i = 0; i < length; i++) {
+                s = s.replace("()", "").replace("{}", "").replace("[]", "");
+            }
+            result = s.length() == 0;
         }
 
-        int length = s.length() / 2;
-
-        for (int i = 0; i < length; i++) {
-            s = s.replace("()", "").replace("{}", "").replace("[]", "");
-        }
-        return s.length() == 0;
+        return result;
     }
 
 }

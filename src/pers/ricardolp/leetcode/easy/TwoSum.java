@@ -61,6 +61,7 @@ public class TwoSum {
      *         {@code target}.
      */
     private int[] twoSum1(int[] nums, int target) {
+        int[] result = null;
 
         int[] indices = new int[2];
         HashMap<Integer, Integer> hashMap = new HashMap<>(nums.length);
@@ -69,12 +70,16 @@ public class TwoSum {
             if (hashMap.containsKey(nums[i])) {
                 indices[0] = hashMap.get(nums[i]);
                 indices[1] = i;
-                return indices;
+                result = indices;
+                break;
             }
             // Store the result as the key, and the subscript as the value.
             hashMap.put(target - nums[i], i);
         }
-        return indices;
+        if (result == null) {
+            result = indices;
+        }
+        return result;
     }
 
     /**
@@ -90,6 +95,7 @@ public class TwoSum {
      *         {@code target}.
      */
     private int[] twoSum2(int[] nums, int target) {
+        int[] result = null;
 
         int[] indices = new int[2];
 
@@ -100,12 +106,19 @@ public class TwoSum {
                 if (nums[i] + nums[j] == target) {
                     indices[0] = i;
                     indices[1] = j;
-                    return indices;
+                    result = indices;
+                    break;
                 }
 
             }
+            if (result != null) {
+                break;
+            }
         }
-        return indices;
+        if (result == null) {
+            result = indices;
+        }
+        return result;
     }
 
 }

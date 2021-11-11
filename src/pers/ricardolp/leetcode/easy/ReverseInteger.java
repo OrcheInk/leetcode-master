@@ -51,6 +51,7 @@ public class ReverseInteger {
      * @return {@code 0} if overflow, the inverted number otherwise.
      */
     private int reverse1(int x) {
+        int result = 1;
 
         int rev = 0;
 
@@ -58,7 +59,8 @@ public class ReverseInteger {
 
             // Overflowing when condition is met.
             if (rev < Integer.MIN_VALUE / 10 || rev > Integer.MAX_VALUE / 10) {
-                return 0;
+                result = 0;
+                break;
             }
 
             // Break down the number.
@@ -66,7 +68,10 @@ public class ReverseInteger {
             x /= 10;
             rev = rev * 10 + digit;
         }
-        return rev;
+        if (result == 1) {
+            result = rev;
+        }
+        return result;
     }
 
     /**
@@ -78,6 +83,7 @@ public class ReverseInteger {
      * @return {@code 0} if overflow, the inverted number otherwise.
      */
     private int reverse2(int x) {
+        int result;
 
         String valueStr = String.valueOf(x);
         String str = valueStr;
@@ -92,10 +98,11 @@ public class ReverseInteger {
         }
 
         try {
-            return Integer.parseInt((new StringBuilder(str)).reverse().toString()) * flag;
+            result = Integer.parseInt((new StringBuilder(str)).reverse().toString()) * flag;
         } catch (NumberFormatException e) {
-            return 0;
+            result = 0;
         }
+        return result;
     }
 
 }

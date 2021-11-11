@@ -37,27 +37,27 @@ public class LongestCommonPrefix {
      * After traversing all the strings, you can get the longest common prefix in
      * the string array.
      *
-     * @param strs the string array for which the longest common prefix needs to be
-     *            found.
+     * @param strs the string array to find the longest common prefix.
      * @return the longest common prefix of {@code strs}.
      */
     private String longestCommonPrefix1(String[] strs) {
+        String result;
 
         if (strs.length == 1) {
-            return strs[0];
-        }
+            result = strs[0];
+        } else {// The public prefix is shorter than all strings, choose any.
+            String prefix = strs[0];
+            for (String string : strs) {
+                while (!string.startsWith(prefix)) {
 
-        // The public prefix is shorter than all strings, choose any.
-        String prefix = strs[0];
-
-        for (String string : strs) {
-            while (!string.startsWith(prefix)) {
-
-                // Make it shorter if the common prefix does not match.
-                prefix = prefix.substring(0, prefix.length() - 1);
+                    // Make it shorter if the common prefix does not match.
+                    prefix = prefix.substring(0, prefix.length() - 1);
+                }
             }
+            result = prefix;
         }
-        return prefix;
+
+        return result;
     }
 
     /**
@@ -70,11 +70,11 @@ public class LongestCommonPrefix {
      * the same, the current column no longer belongs to the common prefix, and the
      * part before the current column is the longest Common prefix.
      *
-     * @param strs the string array for which the longest common prefix needs to be
-     *            found.
+     * @param strs the string array to find the longest common prefix.
      * @return the longest common prefix of {@code strs}.
      */
     private String longestCommonPrefix2(String[] strs) {
+        String result = null;
 
         int length = strs[0].length();
         int count = strs.length;
@@ -89,11 +89,18 @@ public class LongestCommonPrefix {
                 if (i == strs[j].length() || strs[j].charAt(i) != c) {
 
                     // Make it shorter if the common prefix does not match.
-                    return strs[0].substring(0, i);
+                    result = strs[0].substring(0, i);
+                    break;
                 }
             }
+            if (result != null) {
+                break;
+            }
         }
-        return strs[0];
+        if (result == null) {
+            result = strs[0];
+        }
+        return result;
     }
 
 }

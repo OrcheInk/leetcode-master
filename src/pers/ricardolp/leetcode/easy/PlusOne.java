@@ -60,21 +60,26 @@ public class PlusOne {
      *         converted to an integer.
      */
     private int[] plusOne1(int[] digits) {
+        int[] result = null;
 
         for (int i = digits.length - 1; i >= 0; i--) {
 
             if (digits[i] != 9) {
                 digits[i]++;
-                return digits;
+                result = digits;
+                break;
             }
 
             digits[i] = 0;
         }
-
         // Jump out of the loop, indicating that all numbers are 9.
-        int[] temp = new int[digits.length + 1];
-        temp[0] = 1;
-        return temp;
+        if (result == null) {
+            int[] temp = new int[digits.length + 1];
+            temp[0] = 1;
+            result = temp;
+        }
+
+        return result;
     }
 
 }

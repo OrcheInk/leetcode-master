@@ -52,19 +52,19 @@ public class PalindromeNumber {
      *         otherwise.
      */
     private boolean isPalindrome1(int x) {
+        boolean result = false;
 
         // Filter condition.
-        if (x < 0 || (x % 10 == 0 && x != 0)) {
-            return false;
+        if (x >= 0 && (x % 10 != 0 || x == 0)) {
+            int revertedNumber = 0;
+            while (x > revertedNumber) {
+                revertedNumber = revertedNumber * 10 + x % 10;
+                x /= 10;
+            }
+            result = x == revertedNumber || x == revertedNumber / 10;
         }
 
-        int revertedNumber = 0;
-
-        while (x > revertedNumber) {
-            revertedNumber = revertedNumber * 10 + x % 10;
-            x /= 10;
-        }
-        return x == revertedNumber || x == revertedNumber / 10;
+        return result;
     }
 
     /**
@@ -77,20 +77,20 @@ public class PalindromeNumber {
      *         otherwise.
      */
     private boolean isPalindrome2(int x) {
+        boolean result = false;
 
-        if (x < 0) {
-            return false;
+        if (x >= 0) {
+            int remainder, y = 0;
+            int quotation = x;
+            while (quotation != 0) {
+                remainder = quotation % 10;
+                y = y * 10 + remainder;
+                quotation = quotation / 10;
+            }
+            result = y == x;
         }
 
-        int remainder, y = 0;
-        int quotation = x;
-
-        while (quotation != 0) {
-            remainder = quotation % 10;
-            y = y * 10 + remainder;
-            quotation = quotation / 10;
-        }
-        return y == x;
+        return result;
     }
 
     /**
@@ -104,23 +104,29 @@ public class PalindromeNumber {
      *         otherwise.
      */
     private boolean isPalindrome3(int x) {
+        boolean result = true;
+        boolean finished = false;
 
         boolean flag = false;
         String str = Integer.toString(x);
 
-        if (str.length() == 1) {
-            return true;
-        }
+        if (str.length() != 1) {
+            for (int i = 0; i < str.length() / 2; i++) {
 
-        for (int i = 0; i < str.length() / 2; i++) {
+                flag = str.charAt(i) == str.charAt(str.length() - 1 - i);
 
-            flag = str.charAt(i) == str.charAt(str.length() - 1 - i);
-
-            if (!flag) {
-                return false;
+                if (!flag) {
+                    result = false;
+                    finished = true;
+                    break;
+                }
+            }
+            if (!finished) {
+                result = flag;
             }
         }
-        return flag;
+
+        return result;
     }
 
 }

@@ -41,8 +41,8 @@ public class MaximumSubarray {
      * <p>
      * Dynamic programming.
      *
-     * @param nums the array that needs to be calculated the largest sum of the
-     *            contiguous subarray.
+     * @param nums the array to calculate the largest sum of the contiguous
+     *            subarray.
      * @return the largest sum of the contiguous subarray in {@code nums}.
      */
     private int maxSubArray1(int[] nums) {
@@ -66,8 +66,8 @@ public class MaximumSubarray {
      * <p>
      * Greedy algorithm.
      *
-     * @param nums the array that needs to be calculated the largest sum of the
-     *            contiguous subarray.
+     * @param nums the array to calculate the largest sum of the contiguous
+     *            subarray.
      * @return the largest sum of the contiguous subarray in {@code nums}.
      */
     private int maxSubArray2(int[] nums) {
@@ -101,8 +101,8 @@ public class MaximumSubarray {
      * <p>
      * Divide-and-Conquer Algorithm.
      *
-     * @param nums the array that needs to be calculated the largest sum of the
-     *            contiguous subarray.
+     * @param nums the array to calculate the largest sum of the contiguous
+     *            subarray.
      * @return the largest sum of the contiguous subarray in {@code nums}.
      */
     private int maxSubArray3(int[] nums) {
