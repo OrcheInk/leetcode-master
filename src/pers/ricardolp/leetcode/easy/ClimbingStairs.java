@@ -113,6 +113,7 @@ public class ClimbingStairs {
     /**
      * Solution4.
      * <p>
+     * General term formula.
      *
      * @param n the number of steps to climb.
      * @return the number of methods that can be used.

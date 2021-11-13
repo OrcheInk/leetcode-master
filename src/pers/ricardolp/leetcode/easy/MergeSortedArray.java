@@ -59,7 +59,7 @@ import java.util.Arrays;
 public class MergeSortedArray {
 
     /**
-     * Soulution1.
+     * Solution1.
      * <p>
      * Put the array {@code nums2} into the end of the array {@code nums1}, and then
      * sort the entire array directly.
@@ -77,7 +77,7 @@ public class MergeSortedArray {
     }
 
     /**
-     * Soulution2.
+     * Solution2.
      * <p>
      * Double pointer method.
      * <p>
@@ -119,7 +119,7 @@ public class MergeSortedArray {
     }
 
     /**
-     * Soulution3.
+     * Solution3.
      * <p>
      * Reverse double pointer method.
      * <p>
@@ -157,7 +157,7 @@ public class MergeSortedArray {
     }
 
     /**
-     * Soulution4.!
+     * Solution4!
      * <p>
      * Reverse double pointer method simplify.
      *
