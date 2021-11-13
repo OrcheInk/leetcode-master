@@ -31,12 +31,6 @@ package pers.ricardolp.leetcode.easy;
  * @since 2021/11/9
  */
 public class SqrtX {
-    public static void main(String[] args) {
-        int x = 2147395599;
-        SqrtX sqrtX = new SqrtX();
-        // 46339
-        System.out.println(sqrtX.mySqrt2(x));
-    }
 
     /**
      * Solution1.
@@ -63,19 +57,17 @@ public class SqrtX {
      * Solution2.
      * <p>
      * Replace the square root function with exponential function <b>exp</b> and
-     * logarithmic function <b>ln</b>.
-     * <p>
-     * <quoteblock>
+     * logarithmic function <b>ln</b>. <blockquote>
      *
      * <pre>
      *      \sqrt{x}=x^\frac{1}{2}=\left(e^{\ln x}\right)^\frac{1}{2}=e^{\frac{1}{2} \lnx}
      * </pre>
      *
-     * </quoteblock>
+     * </blockquote>
      * <p>
      * Because the computer cannot store the exact value of a floating-point number.
      * <br>
-     * The parameters and return values ​​of exponential function and logarithmic
+     * The parameters and return values of exponential function and logarithmic
      * function are all floating-point numbers, so there will be errors in the
      * operation process. <br>
      * So after getting the integer part {@code ans} of the result, we should find
@@ -89,6 +81,7 @@ public class SqrtX {
         int result = 0;
         if (x != 0) {
             int ans = (int)Math.exp(0.5 * Math.log(x));
+            // Judging the final result.
             result = (long)(ans + 1) * (ans + 1) <= x ? ans + 1 : ans;
         }
 
@@ -130,14 +123,14 @@ public class SqrtX {
      * <p>
      * We use <i>C</i> to denote the integer whose square root is to be found.
      * Obviously, the square root of <i>C</i> is the zero point of the function.
-     * <quoteblock> y=f(x)=x^{2}-C </quoteblock>
+     * <blockquote> y=f(x)=x^{2}-C </blockquote>
      * <p>
      * We choose x_{0}=C as the initial value. <br>
      * In each iteration, we find the point \left(x_{i}, x_{i}^{2}-C\right) on the
      * function image through the current intersection point x_{i}. <br>
      * Draw a straight line with a slope of f^{\prime}\left(x_{i}\right)=2 x_{i}.
      * <br>
-     * The equation of the straight line is: <quoteblock>
+     * The equation of the straight line is: <blockquote>
      *
      * <pre>
      *          \begin{aligned}
@@ -146,17 +139,17 @@ public class SqrtX {
      *          \end{aligned}
      * </pre>
      *
-     * </quoteblock>
+     * </blockquote>
      * <p>
      * The intersection with the horizontal axis is the solution of the equation
      * 2x_{i} x-\left(x_{i}^{2}+C\right)=0, which is the new iteration result
-     * x_{i}+1: <quoteblock>
+     * x_{i}+1: <blockquote>
      *
      * <pre>
      *      x_{i+1}=\frac{1}{2}\left(x_{i}+\frac{C}{x_{i}}\right)
      * </pre>
      *
-     * </quoteblock>
+     * </blockquote>
      *
      * @param x the value for which the square root needs to be calculated.
      * @return the square root of {@code x}.
@@ -164,10 +157,10 @@ public class SqrtX {
     private int mySqrt4(int x) {
         int result = 0;
         if (x != 0) {
-            double C = x, x0 = x;
+            double x0 = x;
             while (true) {
                 // Iterative formula.
-                double xi = 0.5 * (x0 + C / x0);
+                double xi = 0.5 * (x0 + (double)x / x0);
                 /*
                  * When the intersection points of two adjacent iterations are very close, we
                  * can conclude that the result at this time is enough for us to get the answer,

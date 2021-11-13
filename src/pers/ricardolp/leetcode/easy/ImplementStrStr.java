@@ -54,7 +54,8 @@ public class ImplementStrStr {
      * Solution1.
      *
      * @param haystack the specified string.
-     * @return the pattern string.
+     * @param needle the pattern string.
+     * @return the index of matching position.
      */
     private int strStr1(String haystack, String needle) {
 

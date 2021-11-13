@@ -1,7 +1,7 @@
 package pers.ricardolp.leetcode.easy.other;
 
 /**
- * linked list.
+ * linked list node.
  *
  * @author RicardoLP
  * @since 2021/11/2

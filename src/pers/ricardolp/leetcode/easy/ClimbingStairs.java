@@ -34,7 +34,96 @@ package pers.ricardolp.leetcode.easy;
  */
 public class ClimbingStairs {
 
-    private int climbStairs(int n) {
-        return 0;
+    /**
+     * Solution1.
+     * <p>
+     * Recursion.
+     *
+     * @param n the number of steps to climb.
+     * @return the number of methods that can be used.
+     */
+    private int climbStairs1(int n) {
+        int result;
+        if (n <= 2) {
+            result = n;
+        } else {
+            result = climbStairs1(n - 1) + climbStairs1(n - 2);
+        }
+        return result;
     }
+
+    /**
+     * Solution2.
+     * <p>
+     * Dynamic programming.
+     *
+     * @param n the number of steps to climb.
+     * @return the number of methods that can be used.
+     */
+    private int climbStairs2(int n) {
+        int result = 1;
+
+        int f1;
+        int f2 = 0;
+
+        for (int i = 1; i <= n; i++) {
+            f1 = f2;
+            f2 = result;
+            result = f1 + f2;
+        }
+        return result;
+    }
+
+    /**
+     * Solution3.
+     * <p>
+     * matrix fast power
+     *
+     * @param n the number of steps to climb.
+     * @return the number of methods that can be used.
+     */
+    private int climbStairs3(int n) {
+        int[][] q = {{1, 1}, {1, 0}};
+        int[][] res = pow(q, n);
+        return res[0][0];
+    }
+
+    private int[][] pow(int[][] a, int n) {
+        int[][] ret = {{1, 0}, {0, 1}};
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                ret = multiply(ret, a);
+            }
+            n >>= 1;
+            a = multiply(a, a);
+        }
+        return ret;
+    }
+
+    private int[][] multiply(int[][] a, int[][] b) {
+        int[][] c = new int[2][2];
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                c[i][j] = a[i][0] * b[0][j] + a[i][1] * b[1][j];
+            }
+        }
+        return c;
+    }
+
+    /**
+     * Solution4.
+     * <p>
+     *
+     * @param n the number of steps to climb.
+     * @return the number of methods that can be used.
+     */
+    private int climbStairs4(int n) {
+
+        double sqrt5 = Math.sqrt(5);
+
+        double fibonacci = Math.pow((1 + sqrt5) / 2, n + 1) - Math.pow((1 - sqrt5) / 2, n + 1);
+
+        return (int)Math.round(fibonacci / sqrt5);
+    }
+
 }

@@ -27,7 +27,7 @@ package pers.ricardolp.leetcode.easy;
  *
  * Constraints:
  * <p>
- * 1 {@code} <= s.length {@code} <= 10<sup>4</sup> <br>
+ * 1 {@code <=} s.length {@code <=} 10<sup>4</sup> <br>
  * {@code s} consists of only English letters and spaces ' '. <br>
  * There will be at least one word in {@code s}.
  *

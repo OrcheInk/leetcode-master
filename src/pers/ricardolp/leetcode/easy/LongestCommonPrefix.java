@@ -20,7 +20,7 @@ package pers.ricardolp.leetcode.easy;
  * Constraints:
  * <p>
  * 1 {@code <=} strs.length {@code <=} 200 <br>
- * 0 {@code <=} strs[i].length {@code} <= 200 <br>
+ * 0 {@code <=} strs[i].length {@code <=} 200 <br>
  * {@code strs[i]} consists of only lower-case English letters.
  *
  * @author RicardoLP

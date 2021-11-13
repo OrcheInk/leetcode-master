@@ -28,11 +28,62 @@ import pers.ricardolp.leetcode.easy.other.ListNode;
  * @since 2021/11/11
  */
 public class RemoveDuplicatesFromSortedList {
-    public static void main(String[] args) {
 
+    /**
+     * Solution1.
+     * <p>
+     * Because the position of repeated elements in the linked list is continuous,
+     * we only need to traverse the linked list once to delete the repeated
+     * elements.
+     *
+     * @param head the {@code head} node of the linked list.
+     * @return the linked list after deleting duplicate nodes.
+     */
+    private ListNode deleteDuplicates1(ListNode head) {
+
+        if (head != null) {
+
+            ListNode cur = head;
+
+            while (cur.next != null) {
+
+                if (cur.val == cur.next.val) {
+                    cur.next = cur.next.next;
+                } else {
+                    cur = cur.next;
+                }
+
+            }
+        }
+        return head;
     }
 
-    public ListNode deleteDuplicates(ListNode head) {
-        return new ListNode(10);
+    /**
+     * Solution2.
+     * <p>
+     * Recursion.
+     * <p>
+     * Because the position of repeated elements in the linked list is continuous,
+     * we only need to traverse the linked list once to delete the repeated
+     * elements.
+     *
+     * @param head the {@code head} node of the linked list.
+     * @return the linked list after deleting duplicate nodes.
+     */
+    private ListNode deleteDuplicates2(ListNode head) {
+
+        ListNode result;
+
+        if (head != null && head.next != null) {
+
+            head.next = deleteDuplicates2(head.next);
+
+            if (head.val == head.next.val) {
+                head = head.next;
+            }
+        }
+        result = head;
+        return result;
     }
+
 }

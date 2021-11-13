@@ -7,7 +7,5 @@ package pers.ricardolp.leetcode.easy.test;
  * @since 2021/11/11
  */
 public class Test {
-    public static void main(String[] args) {
-        System.out.println(1e-7);
-    }
+    public static void main(String[] args) {}
 }
