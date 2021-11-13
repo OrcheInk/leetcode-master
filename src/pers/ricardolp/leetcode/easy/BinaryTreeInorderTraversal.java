@@ -1,6 +1,6 @@
 package pers.ricardolp.leetcode.easy;
 
-import java.util.List;
+import java.util.*;
 
 import pers.ricardolp.leetcode.easy.other.TreeNode;
 
@@ -60,16 +60,120 @@ public class BinaryTreeInorderTraversal {
         node6.right = node8;
 
         BinaryTreeInorderTraversal traversal = new BinaryTreeInorderTraversal();
-        traversal.inorderTraversal(node1);
+        List<Integer> list = new ArrayList<>();
+        System.out.println(traversal.inorderTraversal3(node1));
+        // postorderTraversal(node1);
     }
 
-    private List<Integer> inorderTraversal(TreeNode root) {
+    // 非递归后序遍历
+    public static void postorderTraversal(TreeNode root) {
+        Stack<TreeNode> treeNodeStack = new Stack<>();
+        TreeNode node = root;
+        TreeNode lastVisit = root;
+        while (node != null || !treeNodeStack.isEmpty()) {
+            while (node != null) {
+                treeNodeStack.push(node);
+                node = node.left;
+            }
+            // 查看当前栈顶元素
+            node = treeNodeStack.peek();
+            // 如果其右子树也为空，或者右子树已经访问
+            // 则可以直接输出当前节点的值
+            if (node.right == null || node.right == lastVisit) {
+                System.out.print(node.val + " ");
+                treeNodeStack.pop();
+                lastVisit = node;
+                node = null;
+            } else {
+                // 否则，继续遍历右子树
+                node = node.right;
+            }
+        }
+    }
+
+    private List<Integer> inorderTraversal(TreeNode root, List<Integer> list) {
+
         if (root != null) {
-            inorderTraversal(root.left);
-            System.out.print(root.val);
-            inorderTraversal(root.right);
+            inorderTraversal(root.left, list);
+            list.add(root.val);
+            inorderTraversal(root.right, list);
         }
 
-        return null;
+        return list;
     }
+
+    private List<Integer> inorderTraversal1(TreeNode root) {
+
+        List<Integer> res = new ArrayList<>();
+        Deque<TreeNode> stk = new LinkedList<>();
+
+        while (root != null || !stk.isEmpty()) {
+
+            // Traverse the left subtree.
+            while (root != null) {
+                stk.push(root);
+                root = root.left;
+            }
+
+            // Pop up the root node.
+            root = stk.pop();
+            res.add(root.val);
+
+            // Traverse the right subtree.
+            root = root.right;
+        }
+        return res;
+    }
+
+    private List<Integer> inorderTraversal2(TreeNode root) {
+
+        List<Integer> res = new ArrayList<>();
+        Deque<TreeNode> stk = new LinkedList<>();
+
+        while (root != null || !stk.isEmpty()) {
+
+            // Traverse the left subtree.
+            while (root != null) {
+                stk.push(root);
+                res.add(root.val);
+                root = root.left;
+            }
+
+            // Pop up the root node.
+            root = stk.pop();
+
+            // Traverse the right subtree.
+            root = root.right;
+        }
+        return res;
+    }
+
+    private List<Integer> inorderTraversal3(TreeNode root) {
+
+        List<Integer> res = new ArrayList<>();
+        Deque<TreeNode> stk = new LinkedList<>();
+
+        TreeNode lastVisit = root;
+        while (root != null || !stk.isEmpty()) {
+            while (root != null) {
+                stk.push(root);
+                root = root.left;
+            }
+            // 查看当前栈顶元素
+            root = stk.peek();
+            // 如果其右子树也为空，或者右子树已经访问
+            // 则可以直接输出当前节点的值
+            if (root.right == null || root.right == lastVisit) {
+                res.add(root.val);
+                stk.pop();
+                lastVisit = root;
+                root = null;
+            } else {
+                // 否则，继续遍历右子树
+                root = root.right;
+            }
+        }
+        return res;
+    }
+
 }
