@@ -46,17 +46,49 @@ import pers.ricardolp.leetcode.easy.other.TreeNode;
 public class BinaryTreeInorderTraversal {
 
     /**
+     * Recursive pre-order traversal.
+     *
+     * @param list the list for storing result.
+     * @param root the root of the binary tree.
+     */
+    private void preOrderTraversal(TreeNode root, List<Integer> list) {
+
+        if (root != null) {
+            list.add(root.val);
+            preOrderTraversal(root.left, list);
+            preOrderTraversal(root.right, list);
+        }
+
+    }
+
+    /**
      * Recursive in-order traversal.
      *
      * @param list the list for storing result.
      * @param root the root of the binary tree.
      */
-    private void inorderTraversal(TreeNode root, List<Integer> list) {
+    private void inOrderTraversal(TreeNode root, List<Integer> list) {
 
         if (root != null) {
-            inorderTraversal(root.left, list);
+            inOrderTraversal(root.left, list);
             list.add(root.val);
-            inorderTraversal(root.right, list);
+            inOrderTraversal(root.right, list);
+        }
+
+    }
+
+    /**
+     * Recursive post-order traversal.
+     *
+     * @param list the list for storing result.
+     * @param root the root of the binary tree.
+     */
+    private void postOrderTraversal(TreeNode root, List<Integer> list) {
+
+        if (root != null) {
+            postOrderTraversal(root.left, list);
+            postOrderTraversal(root.right, list);
+            list.add(root.val);
         }
 
     }
