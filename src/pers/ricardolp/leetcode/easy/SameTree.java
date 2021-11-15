@@ -73,6 +73,8 @@ public class SameTree {
      *         otherwise.
      */
     private boolean isSameTree2(TreeNode p, TreeNode q) {
+
+        boolean result = true;
         Queue<TreeNode> queue = new LinkedList<>();
 
         queue.offer(p);
@@ -87,7 +89,8 @@ public class SameTree {
             }
 
             if ((p == null || q == null) || p.val != q.val) {
-                return false;
+                result = false;
+                break;
             }
 
             queue.offer(p.left);
@@ -96,7 +99,7 @@ public class SameTree {
             queue.offer(p.right);
             queue.offer(q.right);
         }
-        return true;
+        return result;
     }
 
     /**
