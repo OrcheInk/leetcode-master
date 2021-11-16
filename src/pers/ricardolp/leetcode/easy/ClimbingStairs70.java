@@ -32,7 +32,7 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/11/10
  */
-public class ClimbingStairs {
+public class ClimbingStairs70 {
 
     /**
      * Solution1.

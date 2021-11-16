@@ -38,7 +38,7 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/10/21
  */
-public class PalindromeNumber {
+public class PalindromeNumber9 {
 
     /**
      * Solution1.

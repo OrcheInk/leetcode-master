@@ -34,7 +34,7 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/11/6
  */
-public class LengthOfLastWord {
+public class LengthOfLastWord58 {
 
     /**
      * Solution1.

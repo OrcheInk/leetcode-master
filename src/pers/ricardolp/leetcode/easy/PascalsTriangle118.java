@@ -10,7 +10,7 @@ import java.util.List;
  * @author RicardoLP
  * @since 2021/11/13
  */
-public class PascalsTriangle {
+public class PascalsTriangle118 {
     public static void main(String[] args) {
 
     }

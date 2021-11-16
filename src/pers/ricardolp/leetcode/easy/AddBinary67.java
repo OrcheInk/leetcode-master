@@ -25,7 +25,7 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/11/8
  */
-public class AddBinary {
+public class AddBinary67 {
 
     /**
      * Solution1.

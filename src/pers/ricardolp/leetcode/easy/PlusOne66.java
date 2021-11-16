@@ -50,7 +50,7 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/11/7
  */
-public class PlusOne {
+public class PlusOne66 {
 
     /**
      * Solution1.

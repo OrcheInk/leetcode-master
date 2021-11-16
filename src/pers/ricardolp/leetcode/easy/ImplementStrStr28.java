@@ -41,10 +41,10 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/11/3
  */
-public class ImplementStrStr {
+public class ImplementStrStr28 {
     public static void main(String[] args) {
         String haystack = "helyllo", needle = "ll";
-        ImplementStrStr implementStrStr = new ImplementStrStr();
+        ImplementStrStr28 implementStrStr = new ImplementStrStr28();
         System.out.println(implementStrStr.strStr1(haystack, needle));
     }
 

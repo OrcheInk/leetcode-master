@@ -29,7 +29,7 @@ import pers.ricardolp.leetcode.easy.other.TreeNode;
  * @author RicardoLP
  * @since 2021/11/13
  */
-public class SymmetricTree {
+public class SymmetricTree101 {
 
     /**
      * Solution1.

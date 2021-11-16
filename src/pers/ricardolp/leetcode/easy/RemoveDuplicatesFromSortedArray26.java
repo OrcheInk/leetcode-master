@@ -64,7 +64,7 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/11/2
  */
-public class RemoveDuplicatesFromSortedArray {
+public class RemoveDuplicatesFromSortedArray26 {
 
     /**
      * Solution1.

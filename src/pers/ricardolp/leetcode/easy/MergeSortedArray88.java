@@ -56,7 +56,7 @@ import java.util.Arrays;
  * @author RicardoLP
  * @since 2021/11/12
  */
-public class MergeSortedArray {
+public class MergeSortedArray88 {
 
     /**
      * Solution1.

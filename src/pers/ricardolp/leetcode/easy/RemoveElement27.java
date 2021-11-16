@@ -66,7 +66,7 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/11/3
  */
-public class RemoveElement {
+public class RemoveElement27 {
 
     /**
      * Solution1.

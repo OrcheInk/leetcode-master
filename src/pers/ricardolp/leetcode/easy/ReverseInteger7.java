@@ -37,7 +37,7 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/9/5
  */
-public class ReverseInteger {
+public class ReverseInteger7 {
 
     /**
      * Solution1.

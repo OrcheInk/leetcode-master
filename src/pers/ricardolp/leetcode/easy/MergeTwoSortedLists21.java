@@ -33,7 +33,7 @@ import pers.ricardolp.leetcode.easy.other.ListNode;
  * @author RicardoLP
  * @since 2021/10/31
  */
-public class MergeTwoSortedLists {
+public class MergeTwoSortedLists21 {
 
     /**
      * Solution1.

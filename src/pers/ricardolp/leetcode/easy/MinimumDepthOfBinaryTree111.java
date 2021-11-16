@@ -3,18 +3,19 @@ package pers.ricardolp.leetcode.easy;
 import pers.ricardolp.leetcode.easy.other.TreeNode;
 
 /**
- * leetcode_108 : Convert Sorted Array to Binary Search Tree.
+ * leetcode_111 : Minimum Depth of Binary Tree.
  * <p>
+ * Detail description
  *
  * @author RicardoLP
  * @since 2021/11/13
  */
-public class ConvertSortedArrayToBinarySearchTree {
+public class MinimumDepthOfBinaryTree111 {
     public static void main(String[] args) {
 
     }
 
-    private TreeNode sortedArrayToBST(int[] nums) {
-        return null;
+    private int minDepth(TreeNode root) {
+        return 0;
     }
 }

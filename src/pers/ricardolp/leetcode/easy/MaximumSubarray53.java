@@ -34,7 +34,7 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/11/5
  */
-public class MaximumSubarray {
+public class MaximumSubarray53 {
 
     /**
      * Solution1.

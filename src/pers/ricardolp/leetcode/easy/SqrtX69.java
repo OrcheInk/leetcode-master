@@ -30,7 +30,7 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/11/9
  */
-public class SqrtX {
+public class SqrtX69 {
 
     /**
      * Solution1.

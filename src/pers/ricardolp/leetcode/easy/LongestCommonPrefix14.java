@@ -26,7 +26,7 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/10/30
  */
-public class LongestCommonPrefix {
+public class LongestCommonPrefix14 {
 
     /**
      * Solution1.

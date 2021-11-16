@@ -43,7 +43,7 @@ import pers.ricardolp.leetcode.easy.other.TreeNode;
  * @author RicardoLP
  * @since 2021/11/13
  */
-public class BinaryTreeInorderTraversal {
+public class BinaryTreeInorderTraversal94 {
 
     /**
      * Recursive pre-order traversal.

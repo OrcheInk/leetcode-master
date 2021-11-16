@@ -42,7 +42,7 @@ import java.util.HashMap;
  * @author RicardoLP
  * @since 2021/9/4
  */
-public class TwoSum {
+public class TwoSum1 {
 
     /**
      * Solution1.

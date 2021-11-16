@@ -35,7 +35,7 @@ import pers.ricardolp.leetcode.easy.other.TreeNode;
  * @author RicardoLP
  * @since 2021/11/13
  */
-public class SameTree {
+public class SameTree100 {
 
     /**
      * Solution1.

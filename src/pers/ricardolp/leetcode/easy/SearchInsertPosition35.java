@@ -41,7 +41,7 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/11/4
  */
-public class SearchInsertPosition {
+public class SearchInsertPosition35 {
 
     /**
      * Searches a range of the specified array of ints for the specified value using

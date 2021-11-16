@@ -44,7 +44,7 @@ import java.util.Stack;
  * @author RicardoLP
  * @since 2021/10/30
  */
-public class ValidParentheses {
+public class ValidParentheses20 {
 
     /**
      * Solution1.

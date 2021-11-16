@@ -27,7 +27,7 @@ import pers.ricardolp.leetcode.easy.other.ListNode;
  * @author RicardoLP
  * @since 2021/11/11
  */
-public class RemoveDuplicatesFromSortedList {
+public class RemoveDuplicatesFromSortedList83 {
 
     /**
      * Solution1.

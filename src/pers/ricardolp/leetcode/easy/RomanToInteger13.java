@@ -71,7 +71,7 @@ import java.util.HashMap;
  * @author RicardoLP
  * @since 2021/10/29
  */
-public class RomanToInteger {
+public class RomanToInteger13 {
 
     /**
      * Solution1.

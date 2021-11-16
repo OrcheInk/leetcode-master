@@ -10,7 +10,7 @@ import pers.ricardolp.leetcode.easy.other.TreeNode;
  * @author RicardoLP
  * @since 2021/11/13
  */
-public class PathSum {
+public class PathSum112 {
     public static void main(String[] args) {
 
     }
