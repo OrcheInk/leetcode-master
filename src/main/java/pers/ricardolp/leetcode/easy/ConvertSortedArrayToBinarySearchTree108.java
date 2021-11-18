@@ -94,6 +94,8 @@ public class ConvertSortedArrayToBinarySearchTree108 {
             TreeNode node = new TreeNode(nums[mid]);
             node.left = constructor1(nums, left, mid - 1);
             node.right = constructor1(nums, mid + 1, right);
+
+            result = node;
         }
 
         return result;

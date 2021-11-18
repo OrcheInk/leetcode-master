@@ -1,20 +1,22 @@
 package pers.ricardolp.leetcode.easy;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Summary description
- * <p>
- * Detail description
+ * leetcode_9 : Palindrome Number.
  *
  * @author RicardoLP
  * @since 2021/11/17
  */
 class PalindromeNumber9Test {
 
-    private int x = 1435341;
     private PalindromeNumber9 solution;
+
+    private int x = 1435341;
+
+    private boolean answer = true;
 
     @BeforeEach
     public void initialize() {
@@ -24,18 +26,19 @@ class PalindromeNumber9Test {
     @Test
     void isPalindrome1() {
         boolean result = solution.isPalindrome1(x);
-        System.out.println(result);
+        Assertions.assertEquals(answer, result);
     }
 
     @Test
     void isPalindrome2() {
         boolean result = solution.isPalindrome2(x);
-        System.out.println(result);
+        Assertions.assertEquals(answer, result);
     }
 
     @Test
     void isPalindrome3() {
         boolean result = solution.isPalindrome3(x);
-        System.out.println(result);
+        Assertions.assertEquals(answer, result);
     }
+
 }
