@@ -43,4 +43,10 @@ class BalancedBinaryTree110Test {
         boolean result = solution.isBalanced1(root);
         Assertions.assertEquals(answer, result);
     }
+
+    @Test
+    void isBalanced2() {
+        boolean result = solution.isBalanced2(root);
+        Assertions.assertEquals(answer, result);
+    }
 }
