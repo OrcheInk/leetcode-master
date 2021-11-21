@@ -142,7 +142,9 @@ public class ConvertSortedArrayToBinarySearchTree108 {
         if (left <= right) {
 
             // .nextInt -> the upper bound (exclusive), must be positive.
-            int mid = left + ((right - left + rand.nextInt(2)) >> 1);
+            int random = rand.nextInt(2);
+            System.out.println(random);
+            int mid = left + ((right - left + random) >> 1);
 
             TreeNode node = new TreeNode(nums[mid]);
             node.left = constructor3(nums, left, mid - 1);

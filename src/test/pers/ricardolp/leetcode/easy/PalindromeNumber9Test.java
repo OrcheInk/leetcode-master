@@ -19,7 +19,7 @@ class PalindromeNumber9Test {
     private boolean answer = true;
 
     @BeforeEach
-    public void initialize() {
+    public void setUp() {
         solution = new PalindromeNumber9();
     }
 

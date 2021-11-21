@@ -15,7 +15,7 @@ class AddBinary67Test {
     private AddBinary67 solution;
 
     @BeforeEach
-    public void initialize() {
+    public void setUp() {
         solution = new AddBinary67();
     }
 

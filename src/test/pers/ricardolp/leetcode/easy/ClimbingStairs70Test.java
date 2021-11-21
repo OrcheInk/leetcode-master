@@ -19,7 +19,7 @@ class ClimbingStairs70Test {
     private int answer = 1346269;
 
     @BeforeEach
-    public void initialize() {
+    public void setUp() {
         solution = new ClimbingStairs70();
     }
 
@@ -46,4 +46,5 @@ class ClimbingStairs70Test {
         int result = solution.climbStairs4(n);
         Assertions.assertEquals(answer, result);
     }
+
 }

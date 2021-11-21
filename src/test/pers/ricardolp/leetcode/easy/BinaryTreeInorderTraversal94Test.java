@@ -28,7 +28,7 @@ class BinaryTreeInorderTraversal94Test {
     private List<Integer> postOrderAnswer;
 
     @BeforeEach
-    public void initialize() {
+    public void setUp() {
 
         root = new TreeNode(0);
         TreeNode node1 = new TreeNode(1);
@@ -91,4 +91,5 @@ class BinaryTreeInorderTraversal94Test {
         List<Integer> result = solution.postOrderTraversal(root);
         Assertions.assertEquals(postOrderAnswer, result);
     }
+
 }

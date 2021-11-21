@@ -21,7 +21,7 @@ class BalancedBinaryTree110Test {
     private boolean answer = true;
 
     @BeforeEach
-    public void initialize() {
+    public void setUp() {
 
         solution = new BalancedBinaryTree110();
 
@@ -35,7 +35,6 @@ class BalancedBinaryTree110Test {
         root.right = node2;
         node2.left = node3;
         node2.right = node4;
-
     }
 
     @Test

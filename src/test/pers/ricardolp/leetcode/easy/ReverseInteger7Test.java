@@ -19,7 +19,7 @@ class ReverseInteger7Test {
     private int answer = 1491;
 
     @BeforeEach
-    public void initialize() {
+    public void setUp() {
         solution = new ReverseInteger7();
     }
 

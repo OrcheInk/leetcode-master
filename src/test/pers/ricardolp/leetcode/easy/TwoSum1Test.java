@@ -20,7 +20,7 @@ class TwoSum1Test {
     private int[] answer = {1, 3};
 
     @BeforeEach
-    public void initialize() {
+    public void setUp() {
         solution = new TwoSum1();
     }
 
