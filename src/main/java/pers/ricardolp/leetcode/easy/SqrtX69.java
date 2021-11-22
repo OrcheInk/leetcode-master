@@ -80,7 +80,8 @@ public class SqrtX69 {
 
         int result = 0;
         if (x != 0) {
-            int ans = (int)Math.exp(0.5 * Math.log(x));
+            double half = 0.5;
+            int ans = (int)Math.exp(half * Math.log(x));
             // Judging the final result.
             result = (long)(ans + 1) * (ans + 1) <= x ? ans + 1 : ans;
         }
@@ -160,13 +161,15 @@ public class SqrtX69 {
             double x0 = x;
             while (true) {
                 // Iterative formula.
-                double xi = 0.5 * (x0 + (double)x / x0);
+                double half = 0.5;
+                double xi = half * (x0 + (double)x / x0);
                 /*
                  * When the intersection points of two adjacent iterations are very close, we
                  * can conclude that the result at this time is enough for us to get the answer,
                  * generally can be 10^-6 or 10^-7.
                  */
-                if (Math.abs(x0 - xi) < 1e-7) {
+                double difference = 1e-7;
+                if (Math.abs(x0 - xi) < difference) {
                     break;
                 }
                 x0 = xi;

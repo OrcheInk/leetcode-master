@@ -65,7 +65,7 @@ public class ValidParentheses20 {
 
         int length = s.length();
         // If the string length is odd, return false.
-        if (length % 2 == 1) {
+        if (length % 2 != 0) {
             result = false;
         } else {
 
@@ -73,7 +73,8 @@ public class ValidParentheses20 {
              * In order to quickly determine the type of parentheses,
              * we can use a hash table to store each type of parentheses.
              */
-            HashMap<Character, Character> hash = new HashMap<>(3);
+            int initialCapacity = 3;
+            HashMap<Character, Character> hash = new HashMap<>(initialCapacity);
             hash.put(')', '(');
             hash.put('}', '{');
             hash.put(']', '[');
@@ -116,7 +117,7 @@ public class ValidParentheses20 {
         boolean result = true;
 
         // If the string length is odd, return false.
-        if (s.length() % 2 == 1) {
+        if (s.length() % 2 != 0) {
             result = false;
         } else {
             int count = 1;
@@ -210,7 +211,7 @@ public class ValidParentheses20 {
         boolean result = false;
 
         // If the string length is odd, return false.
-        if (s.length() % 2 != 1) {
+        if (s.length() % 2 == 0) {
             int length = s.length() / 2;
             for (int i = 0; i < length; i++) {
                 s = s.replace("()", "").replace("{}", "").replace("[]", "");

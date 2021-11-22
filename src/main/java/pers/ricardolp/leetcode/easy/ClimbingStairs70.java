@@ -120,7 +120,8 @@ public class ClimbingStairs70 {
      */
     public int climbStairs4(int n) {
 
-        double sqrt5 = Math.sqrt(5);
+        int constant = 5;
+        double sqrt5 = Math.sqrt(constant);
 
         double fibonacci = Math.pow((1 + sqrt5) / 2, n + 1) - Math.pow((1 - sqrt5) / 2, n + 1);
 

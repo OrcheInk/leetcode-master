@@ -25,6 +25,11 @@ public class ListNode {
         this.next = next;
     }
 
+    /**
+     * Output linked list.
+     *
+     * @return the contents of the list.
+     */
     @Override
     public String toString() {
         return val + "," + next;

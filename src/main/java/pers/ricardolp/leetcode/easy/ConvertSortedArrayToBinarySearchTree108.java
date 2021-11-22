@@ -46,7 +46,7 @@ public class ConvertSortedArrayToBinarySearchTree108 {
      * @param nums the ascending array.
      * @return the height-balanced binary search tree.
      */
-    public TreeNode sortedArrayToBST1(int[] nums) {
+    public TreeNode sortedArrayToBst1(int[] nums) {
         return constructor1(nums, 0, nums.length - 1);
     }
 
@@ -59,7 +59,7 @@ public class ConvertSortedArrayToBinarySearchTree108 {
      * @param nums the ascending array.
      * @return the height-balanced binary search tree.
      */
-    public TreeNode sortedArrayToBST2(int[] nums) {
+    public TreeNode sortedArrayToBst2(int[] nums) {
         return constructor2(nums, 0, nums.length - 1);
     }
 
@@ -71,7 +71,7 @@ public class ConvertSortedArrayToBinarySearchTree108 {
      * @param nums the ascending array.
      * @return the height-balanced binary search tree.
      */
-    public TreeNode sortedArrayToBST3(int[] nums) {
+    public TreeNode sortedArrayToBst3(int[] nums) {
         return constructor3(nums, 0, nums.length - 1);
     }
 
@@ -143,7 +143,6 @@ public class ConvertSortedArrayToBinarySearchTree108 {
 
             // .nextInt -> the upper bound (exclusive), must be positive.
             int random = rand.nextInt(2);
-            System.out.println(random);
             int mid = left + ((right - left + random) >> 1);
 
             TreeNode node = new TreeNode(nums[mid]);

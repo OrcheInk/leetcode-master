@@ -58,15 +58,16 @@ public class ReverseInteger7 {
         while (x != 0) {
 
             // Overflowing when condition is met.
-            if (rev < Integer.MIN_VALUE / 10 || rev > Integer.MAX_VALUE / 10) {
+            int base = 10;
+            if (rev < Integer.MIN_VALUE / base || rev > Integer.MAX_VALUE / base) {
                 result = 0;
                 break;
             }
 
             // Break down the number.
-            int digit = x % 10;
-            x /= 10;
-            rev = rev * 10 + digit;
+            int digit = x % base;
+            x /= base;
+            rev = rev * base + digit;
         }
         if (result == 1) {
             result = rev;

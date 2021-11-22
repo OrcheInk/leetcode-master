@@ -64,7 +64,8 @@ public class PlusOne66 {
 
         for (int i = digits.length - 1; i >= 0; i--) {
 
-            if (digits[i] != 9) {
+            int needToCarry = 9;
+            if (digits[i] != needToCarry) {
                 digits[i]++;
                 result = digits;
                 break;

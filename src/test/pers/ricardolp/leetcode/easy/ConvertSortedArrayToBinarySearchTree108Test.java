@@ -8,8 +8,9 @@ import java.util.Random;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
 
 import pers.ricardolp.leetcode.easy.other.TreeNode;
 
@@ -19,13 +20,16 @@ import pers.ricardolp.leetcode.easy.other.TreeNode;
  * @author RicardoLP
  * @since 2021/11/18
  */
-@PrepareForTest(ConvertSortedArrayToBinarySearchTree108.class)
 class ConvertSortedArrayToBinarySearchTree108Test {
 
     private ConvertSortedArrayToBinarySearchTree108 solution;
     private BinaryTreeInorderTraversal94 traversal;
     private List<Integer> list;
     private int[] nums = {-10, -3, 0, 5, 9};
+    @Mock
+    private Random rand;
+    @InjectMocks
+    private ConvertSortedArrayToBinarySearchTree108 underTest;
 
     @BeforeEach
     public void setUp() throws Exception {
@@ -44,7 +48,7 @@ class ConvertSortedArrayToBinarySearchTree108Test {
 
         List<Integer> answer = new ArrayList<>(Arrays.asList(0, -10, -3, 5, 9));
 
-        TreeNode result = solution.sortedArrayToBST1(nums);
+        TreeNode result = solution.sortedArrayToBst1(nums);
         list = traversal.preOrderTraversal(result);
 
         Assertions.assertEquals(answer, list);
@@ -55,7 +59,7 @@ class ConvertSortedArrayToBinarySearchTree108Test {
 
         List<Integer> answer = new ArrayList<>(Arrays.asList(0, -3, -10, 9, 5));
 
-        TreeNode result = solution.sortedArrayToBST2(nums);
+        TreeNode result = solution.sortedArrayToBst2(nums);
         list = traversal.preOrderTraversal(result);
 
         Assertions.assertEquals(answer, list);
@@ -64,10 +68,8 @@ class ConvertSortedArrayToBinarySearchTree108Test {
     @Test
     void sortedArrayToBST3() {
 
-        TreeNode result = solution.sortedArrayToBST3(nums);
+        TreeNode result = solution.sortedArrayToBst3(nums);
         list = traversal.preOrderTraversal(result);
-
-        System.out.println(list);
     }
 
 }

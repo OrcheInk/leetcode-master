@@ -55,13 +55,14 @@ public class PalindromeNumber9 {
         boolean result = false;
 
         // Filter condition.
-        if (x >= 0 && (x % 10 != 0 || x == 0)) {
+        int base = 10;
+        if (x >= 0 && (x % base != 0 || x == 0)) {
             int revertedNumber = 0;
             while (x > revertedNumber) {
-                revertedNumber = revertedNumber * 10 + x % 10;
-                x /= 10;
+                revertedNumber = revertedNumber * base + x % base;
+                x /= base;
             }
-            result = x == revertedNumber || x == revertedNumber / 10;
+            result = x == revertedNumber || x == revertedNumber / base;
         }
 
         return result;
@@ -83,9 +84,10 @@ public class PalindromeNumber9 {
             int remainder, y = 0;
             int quotation = x;
             while (quotation != 0) {
-                remainder = quotation % 10;
-                y = y * 10 + remainder;
-                quotation = quotation / 10;
+                int base = 10;
+                remainder = quotation % base;
+                y = y * base + remainder;
+                quotation = quotation / base;
             }
             result = y == x;
         }

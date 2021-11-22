@@ -102,11 +102,9 @@ public class SymmetricTree101 {
 
         if (node1 == null && node2 == null) {
             result = true;
-        } else if (node1 != null && node2 != null) {
+        } else if (node1 != null && node2 != null && node1.val == node2.val) {
 
-            if (node1.val == node2.val) {
-                result = isSame(node1.left, node2.right) && isSame(node1.right, node2.left);
-            }
+            result = isSame(node1.left, node2.right) && isSame(node1.right, node2.left);
         }
 
         return result;
