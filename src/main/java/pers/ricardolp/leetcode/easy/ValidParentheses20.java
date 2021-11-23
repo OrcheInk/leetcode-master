@@ -65,7 +65,8 @@ public class ValidParentheses20 {
 
         int length = s.length();
         // If the string length is odd, return false.
-        if (length % 2 != 0) {
+        int half = 2;
+        if (length % half != 0) {
             result = false;
         } else {
 
@@ -117,7 +118,8 @@ public class ValidParentheses20 {
         boolean result = true;
 
         // If the string length is odd, return false.
-        if (s.length() % 2 != 0) {
+        int half = 2;
+        if (s.length() % half != 0) {
             result = false;
         } else {
             int count = 1;
@@ -188,8 +190,11 @@ public class ValidParentheses20 {
              * If there is a difference of 1 or 2 between the ASCII codes of adjacent
              * brackets, the brackets match.
              */
-            if (count != 0 && (temp[count] - temp[count - 1] == 1 || temp[count] - temp[count - 1] == 2)) {
-                count--;
+            if (count != 0) {
+                int condition = temp[count] - temp[count - 1];
+                if ((condition == 1 || condition == 2)) {
+                    count--;
+                }
             } else {
                 count++;
             }
@@ -211,7 +216,8 @@ public class ValidParentheses20 {
         boolean result = false;
 
         // If the string length is odd, return false.
-        if (s.length() % 2 == 0) {
+        int half = 2;
+        if (s.length() % half == 0) {
             int length = s.length() / 2;
             for (int i = 0; i < length; i++) {
                 s = s.replace("()", "").replace("{}", "").replace("[]", "");

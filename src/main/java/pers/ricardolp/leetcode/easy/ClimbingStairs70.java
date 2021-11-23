@@ -44,7 +44,8 @@ public class ClimbingStairs70 {
      */
     public int climbStairs1(int n) {
         int result;
-        if (n <= 2) {
+        int steps = 2;
+        if (n <= steps) {
             result = n;
         } else {
             result = climbStairs1(n - 1) + climbStairs1(n - 2);
@@ -101,9 +102,10 @@ public class ClimbingStairs70 {
     }
 
     private int[][] multiply(int[][] a, int[][] b) {
-        int[][] c = new int[2][2];
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
+        int constant = 2;
+        int[][] c = new int[constant][constant];
+        for (int i = 0; i < constant; i++) {
+            for (int j = 0; j < constant; j++) {
                 c[i][j] = a[i][0] * b[0][j] + a[i][1] * b[1][j];
             }
         }
@@ -120,8 +122,7 @@ public class ClimbingStairs70 {
      */
     public int climbStairs4(int n) {
 
-        int constant = 5;
-        double sqrt5 = Math.sqrt(constant);
+        double sqrt5 = Math.sqrt(5);
 
         double fibonacci = Math.pow((1 + sqrt5) / 2, n + 1) - Math.pow((1 - sqrt5) / 2, n + 1);
 

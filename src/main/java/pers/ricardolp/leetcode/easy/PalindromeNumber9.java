@@ -56,7 +56,8 @@ public class PalindromeNumber9 {
 
         // Filter condition.
         int base = 10;
-        if (x >= 0 && (x % base != 0 || x == 0)) {
+        boolean condition = x >= 0 && (x % base != 0 || x == 0);
+        if (condition) {
             int revertedNumber = 0;
             while (x > revertedNumber) {
                 revertedNumber = revertedNumber * base + x % base;
@@ -113,7 +114,8 @@ public class PalindromeNumber9 {
         String str = Integer.toString(x);
 
         if (str.length() != 1) {
-            for (int i = 0; i < str.length() / 2; i++) {
+            int half = 2;
+            for (int i = 0; i < str.length() / half; i++) {
 
                 flag = str.charAt(i) == str.charAt(str.length() - 1 - i);
 

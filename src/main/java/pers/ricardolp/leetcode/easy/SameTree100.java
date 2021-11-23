@@ -88,7 +88,8 @@ public class SameTree100 {
                 continue;
             }
 
-            if ((p == null || q == null) || p.val != q.val) {
+            boolean condiiton = (p == null || q == null) || p.val != q.val;
+            if (condiiton) {
                 result = false;
                 break;
             }

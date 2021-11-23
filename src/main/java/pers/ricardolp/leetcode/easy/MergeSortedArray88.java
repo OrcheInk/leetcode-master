@@ -111,11 +111,11 @@ public class MergeSortedArray88 {
 
             sorted[p1 + p2 - 1] = cur;
         }
-
         // Write the temporary array to nums1.
-        for (int i = 0; i != m + n; ++i) {
-            nums1[i] = sorted[i];
-        }
+        // for (int i = 0; i != m + n; ++i) {
+        // nums1[i] = sorted[i];
+        // }
+        System.arraycopy(sorted, m, nums1, m, n);
     }
 
     /**

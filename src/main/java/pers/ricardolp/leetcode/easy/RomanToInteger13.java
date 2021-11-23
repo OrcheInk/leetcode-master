@@ -117,12 +117,19 @@ public class RomanToInteger13 {
 
         for (int i = 0; i < len - 1; i++) {
 
-            if (s.charAt(i) == 'I' && (s.charAt(i + 1) == 'V' || s.charAt(i + 1) == 'X')) {
+            boolean condition1 = s.charAt(i) == 'I' && (s.charAt(i + 1) == 'V' || s.charAt(i + 1) == 'X');
+            if (condition1) {
                 num -= 2;
-            } else if (s.charAt(i) == 'X' && (s.charAt(i + 1) == 'L' || s.charAt(i + 1) == 'C')) {
-                num -= 20;
-            } else if (s.charAt(i) == 'C' && (s.charAt(i + 1) == 'D' || s.charAt(i + 1) == 'M')) {
-                num -= 200;
+            } else {
+                boolean condition2 = s.charAt(i) == 'X' && (s.charAt(i + 1) == 'L' || s.charAt(i + 1) == 'C');
+                if (condition2) {
+                    num -= 20;
+                } else {
+                    boolean condition3 = s.charAt(i) == 'C' && (s.charAt(i + 1) == 'D' || s.charAt(i + 1) == 'M');
+                    if (condition3) {
+                        num -= 200;
+                    }
+                }
             }
 
         }
