@@ -36,4 +36,10 @@ class TwoSum1Test {
         Assertions.assertArrayEquals(answer, result);
     }
 
+    @Test
+    void time() {
+        twoSum1();
+        twoSum2();
+    }
+
 }
