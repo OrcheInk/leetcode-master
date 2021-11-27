@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.powermock.api.mockito.PowerMockito;
+import org.springframework.util.StopWatch;
 
 import pers.ricardolp.leetcode.easy.other.TreeNode;
 
@@ -26,10 +27,12 @@ class ConvertSortedArrayToBinarySearchTree108Test {
     private BinaryTreeInorderTraversal94 traversal;
     private List<Integer> list;
     private int[] nums = {-10, -3, 0, 5, 9};
+
     @Mock
     private Random rand;
     @InjectMocks
     private ConvertSortedArrayToBinarySearchTree108 underTest;
+    private long startTime;
 
     @BeforeEach
     public void setUp() throws Exception {
@@ -70,6 +73,38 @@ class ConvertSortedArrayToBinarySearchTree108Test {
 
         TreeNode result = solution.sortedArrayToBst3(nums);
         list = traversal.preOrderTraversal(result);
+    }
+
+    @Test
+    void time() {
+        StopWatchExpand.init();
+        StopWatchExpand.start("1");
+        solution.sortedArrayToBst1(nums);
+        StopWatchExpand.stop();
+        StopWatchExpand.start("2");
+        solution.sortedArrayToBst2(nums);
+        StopWatchExpand.stop();
+        StopWatchExpand.start("3");
+        solution.sortedArrayToBst3(nums);
+        StopWatchExpand.stop();
+        String print = StopWatchExpand.prettyPrint();
+        System.out.println(print);
+    }
+
+    @Test
+    void timeWatch() {
+        StopWatch watch = new StopWatch();
+        watch.start("1");
+        solution.sortedArrayToBst1(nums);
+        watch.stop();
+        watch.start("2");
+        solution.sortedArrayToBst2(nums);
+        watch.stop();
+        watch.start("3");
+        solution.sortedArrayToBst3(nums);
+        watch.stop();
+        String print = watch.prettyPrint();
+        System.out.println(print);
     }
 
 }

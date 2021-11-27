@@ -4,15 +4,12 @@ import java.text.NumberFormat;
 
 import org.springframework.util.StopWatch;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 检测程序片段运行时间拓展.
  *
  * @author RicardoLP
  * @since 2021/11/22
  */
-@Slf4j
 public class StopWatchExpand {
 
     /**

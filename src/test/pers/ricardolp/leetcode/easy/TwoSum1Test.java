@@ -30,7 +30,6 @@ class TwoSum1Test {
         Assertions.assertArrayEquals(answer, result);
     }
 
-
     @Test
     void twoSum2() {
         int[] result = solution.twoSum2(nums, target);
