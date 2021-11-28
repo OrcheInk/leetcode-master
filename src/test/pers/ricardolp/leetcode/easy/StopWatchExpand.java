@@ -48,28 +48,35 @@ public class StopWatchExpand {
      * @return 统计输出
      */
     public static String prettyPrint() {
+
         // 获取运行的毫秒数与秒数
         long totalTimeMillis = STOP_WATCH.getTotalTimeMillis();
         double totalTimeSeconds = STOP_WATCH.getTotalTimeSeconds();
+
         // 编写总结
         String shortSummary = "StopWatch '" + STOP_WATCH.getId() + "': running time [ "
             + String.format("%9s", totalTimeMillis) + "ms / " + String.format("%9.3f", totalTimeSeconds) + "s ]";
+
         StringBuilder sb = new StringBuilder();
+
         sb.append("---------------------------------------------------------------\n");
         sb.append(shortSummary);
         sb.append('\n');
         sb.append("---------------------------------------------------------------\n");
         sb.append("       ms           s      %      Task name\n");
         sb.append("---------------------------------------------------------------\n");
+
         NumberFormat pf = NumberFormat.getPercentInstance();
         pf.setMinimumIntegerDigits(3);
         pf.setGroupingUsed(false);
+
         for (StopWatch.TaskInfo task : STOP_WATCH.getTaskInfo()) {
             sb.append(String.format("%9s", task.getTimeMillis())).append("   ");
             sb.append(String.format("%9.3f", task.getTimeSeconds())).append("   ");
             sb.append(pf.format((double)task.getTimeMillis() / totalTimeMillis)).append("      ");
             sb.append(task.getTaskName()).append("\n");
         }
+
         return sb.toString();
     }
 }
