@@ -1,5 +1,7 @@
 package pers.ricardolp.leetcode.easy.other;
 
+import java.util.Objects;
+
 /**
  * linked list node.
  *
@@ -35,4 +37,20 @@ public class ListNode {
         return val + "," + next;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof ListNode)) {
+            return false;
+        }
+        ListNode listNode = (ListNode)o;
+        return val == listNode.val && Objects.equals(next, listNode.next);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(val, next);
+    }
 }
