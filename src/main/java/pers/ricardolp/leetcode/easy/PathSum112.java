@@ -1,5 +1,8 @@
 package pers.ricardolp.leetcode.easy;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import pers.ricardolp.leetcode.easy.other.TreeNode;
 
 /**
@@ -36,7 +39,89 @@ import pers.ricardolp.leetcode.easy.other.TreeNode;
  */
 public class PathSum112 {
 
-    public boolean hasPathSum(TreeNode root, int targetSum) {
+    /**
+     * Solution1.
+     * <p>
+     * Recursion.
+     *
+     * @param root the root of a binary tree.
+     * @param targetSum the sum of the numbers on the path.
+     * @return {@code true} if the tree has a root-to-leaf path such that adding up
+     *         all the values along the path equals {@code targetSum}.
+     */
+    public boolean hasPathSum1(TreeNode root, int targetSum) {
+
+        if (root == null) {
+            return false;
+        }
+
+        if (root.left == null && root.right == null) {
+
+            return targetSum - root.val == 0;
+        }
+
+        return hasPathSum1(root.left, targetSum - root.val) || hasPathSum1(root.right, targetSum - root.val);
+    }
+
+    /**
+     * Solution2.
+     * <p>
+     * Breadth first search.
+     *
+     * @param root the root of a binary tree.
+     * @param targetSum the sum of the numbers on the path.
+     * @return {@code true} if the tree has a root-to-leaf path such that adding up
+     *         all the values along the path equals {@code targetSum}.
+     */
+    public boolean hasPathSum2(TreeNode root, int targetSum) {
+
+        if (root == null) {
+            return false;
+        }
+
+        // New queue.
+        Queue<TreeNode> queNode = new LinkedList<>();
+        Queue<Integer> queVal = new LinkedList<>();
+
+        queNode.offer(root);
+        queVal.offer(root.val);
+
+        while (!queNode.isEmpty()) {
+
+            TreeNode now = queNode.poll();
+
+            int result = queVal.poll();
+
+            // If the current node is empty, judge whether the result is targetSum.
+            if (now.left == null && now.right == null) {
+
+                if (result == targetSum) {
+                    return true;
+                }
+                continue;
+
+            }
+
+            if (now.left != null) {
+
+                queNode.offer(now.left);
+
+                // If the left child node is not empty, it will be added to the result.
+                queVal.offer(now.left.val + result);
+
+            }
+
+            if (now.right != null) {
+
+                queNode.offer(now.right);
+
+                // If the right child node is not empty, it will be added to the result.
+                queVal.offer(now.right.val + result);
+
+            }
+        }
+
         return false;
     }
+
 }

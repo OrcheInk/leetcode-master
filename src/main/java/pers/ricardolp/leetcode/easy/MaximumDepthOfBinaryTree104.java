@@ -67,9 +67,12 @@ public class MaximumDepthOfBinaryTree104 {
         int result = 0;
 
         if (root != null) {
+
             Deque<TreeNode> queue = new LinkedList<>();
             queue.offer(root);
+
             int depth = 0;
+
             while (!queue.isEmpty()) {
 
                 // The number of nodes in the current layer.

@@ -31,8 +31,10 @@ class SymmetricTree101Test {
 
         root.left = node1;
         root.right = node2;
+
         node1.left = node3;
         node1.right = node4;
+
         node2.left = node5;
         node2.right = node6;
 
