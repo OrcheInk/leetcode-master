@@ -1,5 +1,6 @@
 package pers.ricardolp.leetcode.easy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,7 +31,15 @@ import java.util.List;
  */
 public class PascalsTriangle118 {
 
-    public List<List<Integer>> generate(int numRows) {
+    public List<List<Integer>> generate1(int numRows) {
+
+        List<List<Integer>> lists = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+
+        if (numRows == 1) {
+
+        }
+
         return null;
     }
 
