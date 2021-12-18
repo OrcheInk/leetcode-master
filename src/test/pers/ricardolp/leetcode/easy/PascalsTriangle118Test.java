@@ -16,10 +16,6 @@ class PascalsTriangle118Test {
 
     private PascalsTriangle118 solution;
 
-    private int numRows = 5;
-
-    private String answer = "[[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]";
-
     @BeforeEach
     public void setUp() {
         solution = new PascalsTriangle118();
@@ -27,7 +23,12 @@ class PascalsTriangle118Test {
 
     @Test
     void generate1() {
+
+        int numRows = 5;
+        String answer = "[[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]";
+
         List<List<Integer>> result = solution.generate1(numRows);
         Assertions.assertEquals(answer, result.toString());
     }
+
 }

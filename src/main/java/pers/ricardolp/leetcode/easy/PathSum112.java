@@ -90,6 +90,7 @@ public class PathSum112 {
 
             TreeNode now = queNode.poll();
 
+            // noinspection ConstantConditions
             int result = queVal.poll();
 
             // If the current node is empty, judge whether the result is targetSum.
