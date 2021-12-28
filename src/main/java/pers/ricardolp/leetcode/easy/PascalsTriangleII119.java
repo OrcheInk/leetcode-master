@@ -1,5 +1,6 @@
 package pers.ricardolp.leetcode.easy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,7 +37,26 @@ import java.util.List;
  * @since 2021/12/20
  */
 public class PascalsTriangleII119 {
+
     public List<Integer> getRow(int rowIndex) {
-        return null;
+
+        List<List<Integer>> C = new ArrayList<>();
+
+        for (int i = 0; i <= rowIndex; ++i) {
+
+            List<Integer> row = new ArrayList<>();
+
+            for (int j = 0; j <= i; ++j) {
+
+                if (j == 0 || j == i) {
+                    row.add(1);
+                } else {
+                    row.add(C.get(i - 1).get(j - 1) + C.get(i - 1).get(j));
+                }
+
+            }
+            C.add(row);
+        }
+        return C.get(rowIndex);
     }
 }
