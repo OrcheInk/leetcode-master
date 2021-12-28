@@ -38,25 +38,49 @@ import java.util.List;
  */
 public class PascalsTriangleII119 {
 
+    /**
+     * Solution1.
+     * <p>
+     * Each number is equal to the sum of the left and right numbers in the previous
+     * line, and this property can be used to write the entire Yang Hui triangle.
+     * <blockquote>
+     *
+     * <pre>
+     *      \mathcal{C}_{n}^{i}=\mathcal{C}_{n-1}^{i}+\mathcal{C}_{n-1}^{i-1}
+     * </pre>
+     *
+     * </blockquote>
+     *
+     * @param rowIndex the index of the line.
+     * @return The result of {@code rowIndex} line.
+     */
     public List<Integer> getRow(int rowIndex) {
 
-        List<List<Integer>> C = new ArrayList<>();
+        // Traverse each list in lists.
+        List<List<Integer>> lists = new ArrayList<>();
 
         for (int i = 0; i <= rowIndex; ++i) {
 
-            List<Integer> row = new ArrayList<>();
+            // Traverse every digit in the current list.
+            List<Integer> list = new ArrayList<>();
 
-            for (int j = 0; j <= i; ++j) {
+            for (int j = 0; j <= i; j++) {
 
+                // Add the value to the current list.
                 if (j == 0 || j == i) {
-                    row.add(1);
+                    list.add(1);
                 } else {
-                    row.add(C.get(i - 1).get(j - 1) + C.get(i - 1).get(j));
+                    /*
+                     * Each number is equal to the sum of the left and right numbers
+                     * in the previous list.
+                     */
+                    list.add(lists.get(i - 1).get(j - 1) + lists.get(i - 1).get(j));
                 }
 
             }
-            C.add(row);
+            lists.add(list);
         }
-        return C.get(rowIndex);
+        return lists.get(rowIndex);
     }
+
 }
