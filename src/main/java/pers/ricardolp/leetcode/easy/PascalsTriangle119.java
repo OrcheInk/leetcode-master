@@ -36,7 +36,7 @@ import java.util.List;
  * @author RicardoLP
  * @since 2021/12/20
  */
-public class PascalsTriangleII119 {
+public class PascalsTriangle119 {
 
     /**
      * Solution1.
@@ -54,7 +54,7 @@ public class PascalsTriangleII119 {
      * @param rowIndex the index of the line.
      * @return The result of {@code rowIndex} line.
      */
-    public List<Integer> getRow(int rowIndex) {
+    public List<Integer> getRow1(int rowIndex) {
 
         // Traverse each list in lists.
         List<List<Integer>> lists = new ArrayList<>();

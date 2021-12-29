@@ -12,13 +12,13 @@ import org.junit.jupiter.api.Test;
  * @author RicardoLP
  * @since 2021/12/28
  */
-class PascalsTriangleII119Test {
+class PascalsTriangle119Test {
 
-    private PascalsTriangleII119 solution;
+    private PascalsTriangle119 solution;
 
     @BeforeEach
     public void setUp() {
-        solution = new PascalsTriangleII119();
+        solution = new PascalsTriangle119();
     }
 
     @Test
@@ -27,7 +27,7 @@ class PascalsTriangleII119Test {
         int rowIndex = 4;
         String answer = "[1, 4, 6, 4, 1]";
 
-        List<Integer> result = solution.getRow(rowIndex);
+        List<Integer> result = solution.getRow1(rowIndex);
         Assertions.assertEquals(answer, result.toString());
     }
 
