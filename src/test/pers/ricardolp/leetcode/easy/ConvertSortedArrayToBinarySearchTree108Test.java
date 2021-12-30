@@ -26,7 +26,7 @@ import pers.ricardolp.leetcode.easy.other.TreeNode;
 class ConvertSortedArrayToBinarySearchTree108Test {
 
     private ConvertSortedArrayToBinarySearchTree108 solution;
-    private BinaryTreeInorderTraversal94 traversal;
+    private BinaryTreePreorderTraversal144 traversal;
 
     private List<Integer> list;
     private int[] nums = {-10, -3, 0, 5, 9};
@@ -42,14 +42,15 @@ class ConvertSortedArrayToBinarySearchTree108Test {
     @BeforeEach
     public void setUp() {
         solution = new ConvertSortedArrayToBinarySearchTree108();
-        traversal = new BinaryTreeInorderTraversal94();
+
+        traversal = new BinaryTreePreorderTraversal144();
     }
 
     @Test
     void sortedArrayToBST1() {
 
         TreeNode result = solution.sortedArrayToBst1(nums);
-        list = traversal.preOrderTraversal(result);
+        list = traversal.preorderTraversal1(result);
 
         Assertions.assertEquals(answer1, list);
         System.out.println(list);
@@ -59,7 +60,7 @@ class ConvertSortedArrayToBinarySearchTree108Test {
     void sortedArrayToBST2() {
 
         TreeNode result = solution.sortedArrayToBst2(nums);
-        list = traversal.preOrderTraversal(result);
+        list = traversal.preorderTraversal1(result);
 
         Assertions.assertEquals(answer2, list);
     }
@@ -69,12 +70,12 @@ class ConvertSortedArrayToBinarySearchTree108Test {
 
         Mockito.when(rand.nextInt(2)).thenReturn(0);
         TreeNode result1 = underTest.sortedArrayToBst3(nums);
-        list = traversal.preOrderTraversal(result1);
+        list = traversal.preorderTraversal1(result1);
         Assertions.assertEquals(answer1, list);
 
         Mockito.when(rand.nextInt(2)).thenReturn(1);
         TreeNode result2 = underTest.sortedArrayToBst3(nums);
-        list = traversal.preOrderTraversal(result2);
+        list = traversal.preorderTraversal1(result2);
         Assertions.assertEquals(answer2, list);
     }
 

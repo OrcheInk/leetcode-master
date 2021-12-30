@@ -1,7 +1,6 @@
 package pers.ricardolp.leetcode.easy;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
@@ -21,11 +20,9 @@ class BinaryTreeInorderTraversal94Test {
     private BinaryTreeInorderTraversal94 solution;
 
     private TreeNode root;
-    private List<Integer> result;
 
-    private List<Integer> preOrderAnswer;
-    private List<Integer> inOrderAnswer;
-    private List<Integer> postOrderAnswer;
+    private List<Integer> list;
+    private String answer;
 
     @BeforeEach
     public void setUp() {
@@ -41,55 +38,29 @@ class BinaryTreeInorderTraversal94Test {
         node1.left = node3;
         node2.right = node4;
 
-        result = new ArrayList<>();
+        list = new ArrayList<>();
 
-        preOrderAnswer = new ArrayList<>(Arrays.asList(0, 1, 3, 2, 4));
-        inOrderAnswer = new ArrayList<>(Arrays.asList(3, 1, 0, 2, 4));
-        postOrderAnswer = new ArrayList<>(Arrays.asList(3, 1, 4, 2, 0));
+        answer = "[3, 1, 0, 2, 4]";
 
         solution = new BinaryTreeInorderTraversal94();
     }
 
     @Test
-    void preOrderTraversal() {
-        solution.preOrderTraversal(root, result);
-        Assertions.assertEquals(preOrderAnswer, result);
-    }
-
-    @Test
     void inOrderTraversal() {
-        solution.inOrderTraversal(root, result);
-        Assertions.assertEquals(inOrderAnswer, result);
-    }
-
-    @Test
-    void postOrderTraversal() {
-        solution.postOrderTraversal(root, result);
-        Assertions.assertEquals(postOrderAnswer, result);
-    }
-
-    @Test
-    void testPreOrderTraversal() {
-        List<Integer> result = solution.preOrderTraversal(root);
-        Assertions.assertEquals(preOrderAnswer, result);
+        solution.inOrderTraversal(root, list);
+        Assertions.assertEquals(answer, list.toString());
     }
 
     @Test
     void inorderTraversal1() {
         List<Integer> result = solution.inorderTraversal1(root);
-        Assertions.assertEquals(inOrderAnswer, result);
+        Assertions.assertEquals(answer, result.toString());
     }
 
     @Test
     void inorderTraversal2() {
         List<Integer> result = solution.inorderTraversal2(root);
-        Assertions.assertEquals(inOrderAnswer, result);
-    }
-
-    @Test
-    void testPostOrderTraversal() {
-        List<Integer> result = solution.postOrderTraversal(root);
-        Assertions.assertEquals(postOrderAnswer, result);
+        Assertions.assertEquals(answer, result.toString());
     }
 
 }

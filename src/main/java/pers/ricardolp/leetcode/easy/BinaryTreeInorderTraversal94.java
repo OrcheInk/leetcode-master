@@ -46,22 +46,6 @@ import pers.ricardolp.leetcode.easy.other.TreeNode;
 public class BinaryTreeInorderTraversal94 {
 
     /**
-     * Recursive pre-order traversal.
-     *
-     * @param list the list for storing result.
-     * @param root the root of the binary tree.
-     */
-    public void preOrderTraversal(TreeNode root, List<Integer> list) {
-
-        if (root != null) {
-            list.add(root.val);
-            preOrderTraversal(root.left, list);
-            preOrderTraversal(root.right, list);
-        }
-
-    }
-
-    /**
      * Recursive in-order traversal.
      *
      * @param list the list for storing result.
@@ -78,51 +62,6 @@ public class BinaryTreeInorderTraversal94 {
     }
 
     /**
-     * Recursive post-order traversal.
-     *
-     * @param list the list for storing result.
-     * @param root the root of the binary tree.
-     */
-    public void postOrderTraversal(TreeNode root, List<Integer> list) {
-
-        if (root != null) {
-            postOrderTraversal(root.left, list);
-            postOrderTraversal(root.right, list);
-            list.add(root.val);
-        }
-
-    }
-
-    /**
-     * Pre-order traversal.
-     *
-     * @param root the root of the binary tree.
-     * @return the pre-order traversal list of binary tree.
-     */
-    public List<Integer> preOrderTraversal(TreeNode root) {
-
-        List<Integer> res = new ArrayList<>();
-        Deque<TreeNode> stk = new LinkedList<>();
-
-        while (root != null || !stk.isEmpty()) {
-
-            // Traverse the left subtree.
-            while (root != null) {
-                stk.push(root);
-                res.add(root.val);
-                root = root.left;
-            }
-
-            // Pop up the root node.
-            root = stk.pop();
-
-            // Traverse the right subtree.
-            root = root.right;
-        }
-        return res;
-    }
-
-    /**
      * Solution1.
      * <p>
      * In-order traversal.
@@ -132,7 +71,9 @@ public class BinaryTreeInorderTraversal94 {
      */
     public List<Integer> inorderTraversal1(TreeNode root) {
 
+        // Storage node value.
         List<Integer> res = new ArrayList<>();
+        // Storage node.
         Deque<TreeNode> stk = new LinkedList<>();
 
         while (root != null || !stk.isEmpty()) {
@@ -158,7 +99,7 @@ public class BinaryTreeInorderTraversal94 {
      * <p>
      * Morris In-order traversal.
      * <p>
-     * Assuming that the currently traversed node is <i>x</i>.
+     * Assuming the currently traversed node is <i>x</i>.
      * <p>
      * Point the rightmost node in the left subtree of <i>x</i> to <i>x</i>, so that
      * after the traversal of the left subtree is completed.
@@ -173,6 +114,8 @@ public class BinaryTreeInorderTraversal94 {
      * @return the in-order traversal list of binary tree.
      */
     public List<Integer> inorderTraversal2(TreeNode root) {
+
+        // Storage node value.
         List<Integer> res = new ArrayList<>();
         TreeNode predecessor;
 
@@ -208,45 +151,6 @@ public class BinaryTreeInorderTraversal94 {
             // If there is no left subtree, go directly to the right subtree.
             else {
                 res.add(root.val);
-                root = root.right;
-            }
-        }
-        return res;
-    }
-
-    /**
-     * Post-order traversal.
-     *
-     * @param root the root of the binary tree.
-     * @return the in-order traversal list of binary tree.
-     */
-    public List<Integer> postOrderTraversal(TreeNode root) {
-
-        List<Integer> res = new ArrayList<>();
-        Deque<TreeNode> stk = new LinkedList<>();
-
-        TreeNode lastVisit = root;
-        while (root != null || !stk.isEmpty()) {
-            while (root != null) {
-                stk.push(root);
-                root = root.left;
-            }
-            // View the current stack top element.
-            root = stk.peek();
-            /*
-             * If the right subtree is also empty, or the right subtree has been visited,
-             * you can directly output the value of the current node.
-             */
-            assert root != null;
-            if (root.right == null || root.right == lastVisit) {
-
-                res.add(root.val);
-                stk.pop();
-                lastVisit = root;
-                root = null;
-
-            } else {
-                // Otherwise, continue to traverse the right subtree.
                 root = root.right;
             }
         }

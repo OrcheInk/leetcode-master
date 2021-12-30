@@ -1,5 +1,8 @@
 package pers.ricardolp.leetcode.easy;
 
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 import pers.ricardolp.leetcode.easy.other.TreeNode;
@@ -35,7 +38,54 @@ import pers.ricardolp.leetcode.easy.other.TreeNode;
  * @since 2021/12/20
  */
 public class BinaryTreePreorderTraversal144 {
-    public List<Integer> preorderTraversal(TreeNode root) {
-        return null;
+
+    /**
+     * Recursive pre-order traversal.
+     *
+     * @param list the list for storing result.
+     * @param root the root of the binary tree.
+     */
+    public void preorderTraversal(TreeNode root, List<Integer> list) {
+
+        if (root != null) {
+            list.add(root.val);
+            preorderTraversal(root.left, list);
+            preorderTraversal(root.right, list);
+        }
+
     }
+
+    /**
+     * Solution1.
+     * <p>
+     * Pre-order traversal.
+     *
+     * @param root the root of the binary tree.
+     * @return the pre-order traversal list of binary tree.
+     */
+    public List<Integer> preorderTraversal1(TreeNode root) {
+
+        // Storage node value.
+        List<Integer> res = new ArrayList<>();
+        // Storage node.
+        Deque<TreeNode> stk = new LinkedList<>();
+
+        while (root != null || !stk.isEmpty()) {
+
+            // Traverse the left subtree.
+            while (root != null) {
+                stk.push(root);
+                res.add(root.val);
+                root = root.left;
+            }
+
+            // Pop up the root node.
+            root = stk.pop();
+
+            // Traverse the right subtree.
+            root = root.right;
+        }
+        return res;
+    }
+
 }
