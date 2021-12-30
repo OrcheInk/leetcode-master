@@ -51,6 +51,7 @@ public class ListNode {
 
     @Override
     public int hashCode() {
-        return Objects.hash(val, next);
+        return Objects.hash(val);
     }
+
 }

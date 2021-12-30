@@ -1,5 +1,7 @@
 package pers.ricardolp.leetcode.easy;
 
+import java.util.HashSet;
+
 import pers.ricardolp.leetcode.easy.other.ListNode;
 
 /**
@@ -44,7 +46,78 @@ import pers.ricardolp.leetcode.easy.other.ListNode;
  * @since 2021/12/20
  */
 public class LinkedListCycle141 {
-    public boolean hasCycle(ListNode head) {
+
+    /**
+     * Solution1.
+     * <p>
+     * We can use a hash table to store all the nodes that have been visited. <br>
+     * Every time we reach a node, if the node already exists in the hash table, it
+     * means that the linked list is a circular linked list. <br>
+     * Otherwise, the node is added to the hash table. <br>
+     * Repeat this process until we traverse the entire linked list.
+     *
+     * @param head the head node of the linked list.
+     * @return {@code true} if there is a ring in the linked list, {@code false}
+     *         otherwise.
+     */
+    public boolean hasCycle1(ListNode head) {
+
+        // Create a new HashSet to store the traversed nodes.
+        HashSet<ListNode> set = new HashSet<>();
+
+        while (head != null) {
+
+            /*
+             * The add() method returns a boolean
+             * indicating whether the addition is successful.
+             */
+            if (!set.add(head)) {
+                return true;
+            }
+            head = head.next;
+        }
         return false;
     }
+
+    /**
+     * Solution2.
+     * <p>
+     * Floyd Cycle Detection Algorithm.
+     * <p>
+     * When the fast and slow pointers meet, it indicates that there is a ring in
+     * the linked list.
+     *
+     * @param head the head node of the linked list.
+     * @return {@code true} if there is a ring in the linked list, {@code false}
+     *         otherwise.
+     */
+    public boolean hasCycle2(ListNode head) {
+
+        // If the linked list is empty or there is only one node, there is no ring.
+        if (head == null || head.next == null) {
+            return false;
+        }
+
+        // Establish fast and slow pointers.
+        ListNode slow = head;
+        ListNode fast = head.next;
+
+        /*
+         * When the fast and slow pointers meet and jump out of the loop,
+         * it indicates that there is a ring in the linked list.
+         */
+        while (slow != fast) {
+
+            // When the fast pointer reaches the end of the linked list, there is no ring.
+            if (fast == null || fast.next == null) {
+                return false;
+            }
+
+            // Move pointer.
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return true;
+    }
+
 }
