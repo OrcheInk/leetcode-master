@@ -86,6 +86,17 @@ public class LinkedListCycle141 {
      * <p>
      * When the fast and slow pointers meet, it indicates that there is a ring in
      * the linked list.
+     * <p>
+     * Looking for the ring entrance: <br>
+     * When the fast and slow pointers meet, we reset the slow pointer to the origin
+     * of the linked list, and set the fast and slow pointers to the same running
+     * speed.<br>
+     * The point where they meet again is the entrance of the ring.
+     * <p>
+     * Calculate the length of the loop: <br>
+     * When the fast and slow pointers meet, we fix the fast pointer, let the slow
+     * pointer continue to run, to count. <br>
+     * When the fast and slow pointers meet again, it traverses the entire ring.
      *
      * @param head the head node of the linked list.
      * @return {@code true} if there is a ring in the linked list, {@code false}
