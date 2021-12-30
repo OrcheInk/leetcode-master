@@ -21,15 +21,31 @@ class LinkedListCycle141Test {
     @BeforeEach
     public void setUp() {
 
-        head = new ListNode(3);
+        head = new ListNode(1);
         ListNode node1 = new ListNode(2);
-        ListNode node2 = new ListNode(0);
-        ListNode node3 = new ListNode(-4);
+        ListNode node2 = new ListNode(3);
+        ListNode node3 = new ListNode(4);
+        ListNode node4 = new ListNode(5);
+        ListNode node5 = new ListNode(6);
+        ListNode node6 = new ListNode(7);
+        ListNode node7 = new ListNode(8);
+        ListNode node8 = new ListNode(9);
+        ListNode node9 = new ListNode(10);
+        ListNode node10 = new ListNode(11);
+        ListNode node11 = new ListNode(12);
 
         head.next = node1;
         node1.next = node2;
         node2.next = node3;
-        node3.next = node1;
+        node3.next = node4;
+        node4.next = node5;
+        node5.next = node6;
+        node6.next = node7;
+        node7.next = node8;
+        node8.next = node9;
+        node9.next = node10;
+        node10.next = node11;
+        node11.next = node1;
 
         solution = new LinkedListCycle141();
     }
@@ -43,6 +59,12 @@ class LinkedListCycle141Test {
     @Test
     void hasCycle2() {
         boolean result = solution.hasCycle2(head);
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    void hasCycle3() {
+        boolean result = solution.hasCycle3(head);
         Assertions.assertTrue(result);
     }
 

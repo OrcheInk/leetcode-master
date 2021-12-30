@@ -128,7 +128,103 @@ public class LinkedListCycle141 {
             slow = slow.next;
             fast = fast.next.next;
         }
+
+        // The length of the ring.
+        int length = length(slow, fast);
+
         return true;
+    }
+
+    /**
+     * Solution3.
+     * <p>
+     * Brent Cycle Detection Algorithm.
+     * <p>
+     * The fast and slow pointers point to the head node at the same time. <br>
+     * The running step of the fast pointer increases from 0, and the upper limit is
+     * 2^{i}(i=0,1,2,...). <br>
+     * When the running step of the fast pointer reaches the upper limit, return the
+     * slow pointer to the fast pointer. <br>
+     * Repeat the above steps, if the fast pointer catches up with the slow pointer,
+     * it means there is a ring in the linked list, otherwise there is no ring. <br>
+     * <p>
+     * The algorithm cannot find the entry node of the ring.
+     * <p>
+     * Calculate the length of the loop: <br>
+     * When the step reaches the upper limit, the fast and slow pointers meet, we
+     * fix the fast pointer, let the slow pointer run in steps of 1, to count. <br>
+     * When the fast and slow pointers meet again, it traverses the entire ring.
+     *
+     * @param head the head node of the linked list.
+     * @return {@code true} if there is a ring in the linked list, {@code false}
+     *         otherwise.
+     */
+    public boolean hasCycle3(ListNode head) {
+
+        ListNode fast = head;
+        ListNode slow = head;
+
+        // Set running step.
+        int steps = 0;
+        // Set the upper limit of running step.
+        int limit = 2;
+
+        while (fast != null) {
+
+            // Traversing the linked list, step is 1.
+            fast = fast.next;
+
+            // If the fast and slow pointers meet, there is a ring in the linked list.
+            if (fast == slow) {
+                return true;
+            }
+
+            // If the fast and slow pointers do not meet, increase the step.
+            steps++;
+            /*
+             * When the step reaches the limit,
+             * and the fast and slow pointers do not meet.
+             */
+            if (steps == limit) {
+
+                // Let the fast and slow pointers coincide.
+                slow = fast;
+
+                // The length of the ring.
+                int length = length(slow, fast);
+
+                // Reset running step.
+                steps = 0;
+
+                // The upper limit of running step is 2^{i}(i=0,1,2,...).
+                limit *= 2;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Calculate the length of the ring in the linked list.
+     *
+     * @param slow slow pointer.
+     * @param fast fast pointer.
+     * @return the length of the ring.
+     */
+    private int length(ListNode slow, ListNode fast) {
+
+        fast = fast.next;
+        int count = 1;
+
+        try {
+            while (slow != fast) {
+                count++;
+                fast = fast.next;
+            }
+        } catch (NullPointerException e) {
+            return 0;
+        }
+
+        return count;
     }
 
 }
