@@ -115,12 +115,15 @@ public class BinaryTreeInorderTraversal94 {
      */
     public List<Integer> inorderTraversal2(TreeNode root) {
 
-        // Storage node value.
+        // Store result.
         List<Integer> res = new ArrayList<>();
+        // Predecessor node of in-order traversal.
         TreeNode predecessor;
 
         while (root != null) {
+
             if (root.left != null) {
+
                 /*
                  * The predecessor node means that the current root node takes one step to the
                  * left, and then keeps going to the right until it cannot go.
@@ -135,7 +138,9 @@ public class BinaryTreeInorderTraversal94 {
                  * the left subtree.
                  */
                 if (predecessor.right == null) {
+
                     predecessor.right = root;
+
                     root = root.left;
                 }
                 /*
@@ -143,8 +148,12 @@ public class BinaryTreeInorderTraversal94 {
                  * we need to disconnect the link.
                  */
                 else {
-                    res.add(root.val);
+
                     predecessor.right = null;
+
+                    res.add(root.val);
+
+                    // Move the current node to the right.
                     root = root.right;
                 }
             }

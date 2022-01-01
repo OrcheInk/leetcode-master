@@ -59,4 +59,10 @@ class BinaryTreePostorderTraversal145Test {
         Assertions.assertEquals(answer, result.toString());
     }
 
+    @Test
+    void postorderTraversal2() {
+        List<Integer> result = solution.postorderTraversal2(root);
+        Assertions.assertEquals(answer, result.toString());
+    }
+
 }
