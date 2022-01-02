@@ -73,6 +73,7 @@ public class BinaryTreeInorderTraversal94 {
 
         // Storage node value.
         List<Integer> res = new ArrayList<>();
+
         // Storage node.
         Deque<TreeNode> stk = new LinkedList<>();
 
@@ -117,6 +118,7 @@ public class BinaryTreeInorderTraversal94 {
 
         // Store result.
         List<Integer> res = new ArrayList<>();
+
         // Predecessor node of in-order traversal.
         TreeNode predecessor;
 

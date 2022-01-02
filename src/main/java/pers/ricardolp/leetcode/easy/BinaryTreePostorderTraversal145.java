@@ -1,9 +1,6 @@
 package pers.ricardolp.leetcode.easy;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import pers.ricardolp.leetcode.easy.other.TreeNode;
 
@@ -56,7 +53,18 @@ public class BinaryTreePostorderTraversal145 {
     /**
      * Solution1.
      * <p>
-     * Post-order traversal.
+     * Iteration post-order traversal.
+     * <p>
+     * When deciding whether to output the value of the current node, post-order
+     * traversal needs to consider whether the left and right subtrees have been
+     * traversed, so a cursor {@code lastVisit} needs to be set to record the last
+     * visited node.
+     * <p>
+     * If {@code lastVisit} is equal to the right subtree of the node currently
+     * being examined, or the right subtree of the node is {@code null}, indicating
+     * that the left and right subtrees of the node have been traversed, the current
+     * node can be output, and the {@code lastVisit} can be updated. Otherwise, you
+     * need to continue traversing the right subtree of the node.
      *
      * @param root the root of the binary tree.
      * @return the in-order traversal list of binary tree.
@@ -65,41 +73,101 @@ public class BinaryTreePostorderTraversal145 {
 
         // Storage node value.
         List<Integer> res = new ArrayList<>();
-        // Storage node.
-        Deque<TreeNode> stk = new LinkedList<>();
 
-        TreeNode lastVisit = root;
+        if (root != null) {
 
-        while (root != null || !stk.isEmpty()) {
+            // Storage node.
+            Deque<TreeNode> stk = new LinkedList<>();
 
-            while (root != null) {
-                stk.push(root);
-                root = root.left;
-            }
-            // View the current stack top element.
-            root = stk.peek();
-            /*
-             * If the right subtree is also empty, or the right subtree has been visited,
-             * you can directly output the value of the current node.
-             */
-            assert root != null;
-            if (root.right == null || root.right == lastVisit) {
+            // Last visited node.
+            TreeNode lastVisit = root;
 
-                res.add(root.val);
-                stk.pop();
-                lastVisit = root;
-                root = null;
+            while (root != null || !stk.isEmpty()) {
 
-            } else {
-                // Otherwise, continue to traverse the right subtree.
-                root = root.right;
+                while (root != null) {
+                    stk.push(root);
+
+                    // Traverse the left subtree.
+                    root = root.left;
+                }
+                // View the current stack top element.
+                root = stk.peek();
+                /*
+                 * If the right subtree is also empty, or the right subtree has been visited,
+                 * you can directly output the value of the current node.
+                 */
+                assert root != null;
+                if (root.right == null || root.right == lastVisit) {
+
+                    res.add(root.val);
+
+                    stk.pop();
+
+                    lastVisit = root;
+
+                    // Set the current node to null.
+                    root = null;
+
+                } else {
+                    // Otherwise, continue to traverse the right subtree.
+                    root = root.right;
+                }
             }
         }
         return res;
     }
 
     /**
-     * Solution2!
+     * Solution2.
+     * <p>
+     * Reversal of preorder traversal.
+     * <p>
+     * The approach is similar to the pre-order traversal. <br>
+     * First traverse the root node, then the right subtree, and finally the left
+     * subtree. <br>
+     * Finally, reverse the sequence of the traversal to get the post-order
+     * traversal.
+     *
+     * @param root the root of the binary tree.
+     * @return the in-order traversal list of binary tree.
+     */
+    public List<Integer> postorderTraversal2(TreeNode root) {
+
+        // Store result.
+        List<Integer> res = new ArrayList<>();
+
+        if (root != null) {
+
+            // Storage node value.
+            Stack<TreeNode> stk = new Stack<>();
+
+            // Add root node.
+            stk.push(root);
+
+            while (!stk.isEmpty()) {
+
+                // Last in first out, the pop-stack order is right-> left-> root.
+                root = stk.pop();
+                res.add(root.val);
+
+                // Add the left child.
+                if (root.left != null) {
+                    stk.push(root.left);
+                }
+
+                // Add the right child.
+                if (root.right != null) {
+                    stk.push(root.right);
+                }
+            }
+            // Invert the result.
+            Collections.reverse(res);
+        }
+        return res;
+    }
+
+    /**
+     * Solution3!
      * <p>
      * Morris Post-order traversal.
      * <p>
@@ -117,7 +185,7 @@ public class BinaryTreePostorderTraversal145 {
      * @param root the root of the binary tree.
      * @return the post-order traversal list of binary tree.
      */
-    public List<Integer> postorderTraversal2(TreeNode root) {
+    public List<Integer> postorderTraversal3(TreeNode root) {
 
         // Store results.
         List<Integer> res = new ArrayList<>();
@@ -155,7 +223,7 @@ public class BinaryTreePostorderTraversal145 {
 
                     predecessor.right = null;
 
-                    // Add the subtree node to the result.
+                    // Add subtrees other than the root node subtree to the result.
                     addSubtree(res, current.left);
 
                     // Move the current node to the right.
@@ -166,7 +234,7 @@ public class BinaryTreePostorderTraversal145 {
                 current = current.right;
             }
         }
-        // Add the subtree node to the result.
+        // Add the subtree of the root node to the result.
         addSubtree(res, root);
 
         return res;
@@ -178,7 +246,7 @@ public class BinaryTreePostorderTraversal145 {
      * @param res store results.
      * @param node the first node in the subtree.
      */
-    public void addSubtree(List<Integer> res, TreeNode node) {
+    private void addSubtree(List<Integer> res, TreeNode node) {
 
         // Record the number of nodes added.
         int count = 0;
@@ -207,7 +275,6 @@ public class BinaryTreePostorderTraversal145 {
             left++;
             right--;
         }
-
     }
 
 }

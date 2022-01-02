@@ -32,77 +32,148 @@ public class Test {
         String answer = "[4, 5, 2, 6, 7, 3, 1]";
 
         Test test = new Test();
+        List<Integer> list = test.postOrderTraversal(root);
 
-        List<Integer> list1 = test.postorderTraversal(root);
-        System.out.println(list1.toString());
+        System.out.println(list.toString());
 
     }
 
-    public List<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> preOrderTraversal(TreeNode root) {
 
         List<Integer> res = new ArrayList<>();
 
-        if (root == null) {
-            return res;
-        }
+        if (root != null) {
 
-        TreeNode current = root, predecessor;
+            TreeNode cur = root, predecessor;
 
-        while (current != null) {
+            while (cur != null) {
+                if (cur.left != null) {
+                    predecessor = cur.left;
 
-            predecessor = current.left;
+                    while (predecessor.right != null && predecessor.right != cur) {
+                        predecessor = predecessor.right;
+                    }
 
-            if (predecessor != null) {
+                    if (predecessor.right == null) {
+                        predecessor.right = cur;
 
-                while (predecessor.right != null && predecessor.right != current) {
-                    predecessor = predecessor.right;
-                }
+                        // add preorder
+                        res.add(cur.val);
 
-                if (predecessor.right == null) {
-
-                    predecessor.right = current;
-                    current = current.left;
-                    continue;
-
+                        cur = cur.left;
+                    } else {
+                        predecessor.right = null;
+                        cur = cur.right;
+                    }
                 } else {
-                    predecessor.right = null;
-                    addSubtree(res, current.left);
+
+                    // add preorder
+                    res.add(cur.val);
+
+                    cur = cur.right;
                 }
             }
-            current = current.right;
         }
+        return res;
+    }
+
+    public List<Integer> inOrderTraversal(TreeNode root) {
+
+        List<Integer> res = new ArrayList<>();
+
+        if (root != null) {
+
+            TreeNode cur = root, predecessor;
+            while (cur != null) {
+                if (cur.left != null) {
+                    predecessor = cur.left;
+
+                    while (predecessor.right != null && predecessor.right != cur) {
+                        predecessor = predecessor.right;
+                    }
+
+                    if (predecessor.right == null) {
+                        predecessor.right = cur;
+                        cur = cur.left;
+                    } else {
+                        predecessor.right = null;
+
+                        // Add inorder
+                        res.add(cur.val);
+
+                        cur = cur.right;
+                    }
+                } else {
+
+                    // Add inorder
+                    res.add(cur.val);
+                    cur = cur.right;
+                }
+            }
+        }
+        return res;
+    }
+
+    public List<Integer> postOrderTraversal(TreeNode root) {
+
+        List<Integer> res = new ArrayList<>();
+
+        if (root != null) {
+
+            TreeNode cur = root, predecessor;
+
+            while (cur != null) {
+
+                if (cur.left != null) {
+                    predecessor = cur.left;
+
+                    while (predecessor.right != null && predecessor.right != cur) {
+                        predecessor = predecessor.right;
+                    }
+
+                    if (predecessor.right == null) {
+                        predecessor.right = cur;
+                        cur = cur.left;
+                    } else {
+                        predecessor.right = null;
+
+                        // Add postorder
+                        addSubtree(res, cur.left);
+
+                        cur = cur.right;
+                    }
+                } else {
+                    cur = cur.right;
+                }
+            }
+        }
+        // Add postorder
         addSubtree(res, root);
         return res;
     }
 
-    public void addSubtree(List<Integer> res, TreeNode node) {
+    private void addSubtree(List<Integer> res, TreeNode root) {
 
         int count = 0;
 
-        // Add the node of the current subtree to the list.
-        while (node != null) {
-
+        while (root != null) {
             count++;
-
-            res.add(node.val);
-            node = node.right;
+            res.add(root.val);
+            root = root.right;
         }
 
-        // Calculate the index of the leftmost and rightmost node added.
         int left = res.size() - count, right = res.size() - 1;
 
-        // Reverse the order of added nodes.
         while (left < right) {
-
             int temp = res.get(left);
 
             res.set(left, res.get(right));
             res.set(right, temp);
 
-            // Move index.
             left++;
             right--;
         }
+
     }
 
 }

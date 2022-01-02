@@ -33,16 +33,20 @@ class BinaryTreePostorderTraversal145Test {
         TreeNode node3 = new TreeNode(4);
         TreeNode node4 = new TreeNode(5);
         TreeNode node5 = new TreeNode(6);
+        TreeNode node6 = new TreeNode(7);
+        TreeNode node7 = new TreeNode(8);
 
         root.left = node1;
         root.right = node2;
-        node1.right = node3;
-        node3.left = node4;
+        node1.left = node3;
+        node2.right = node4;
         node3.right = node5;
+        node5.left = node6;
+        node5.right = node7;
 
         list = new ArrayList<>();
 
-        answer = "[5, 6, 4, 2, 3, 1]";
+        answer = "[7, 8, 6, 4, 2, 5, 3, 1]";
 
         solution = new BinaryTreePostorderTraversal145();
     }
@@ -62,6 +66,12 @@ class BinaryTreePostorderTraversal145Test {
     @Test
     void postorderTraversal2() {
         List<Integer> result = solution.postorderTraversal2(root);
+        Assertions.assertEquals(answer, result.toString());
+    }
+
+    @Test
+    void postorderTraversal3() {
+        List<Integer> result = solution.postorderTraversal3(root);
         Assertions.assertEquals(answer, result.toString());
     }
 
