@@ -52,6 +52,11 @@ public class MinStackC155 {
     /** Use arrays to simulate stacks. */
     Stack<int[]> stk = new Stack<>();
 
+    /**
+     * Add the element to the stack.
+     *
+     * @param val the element.
+     */
     public void push(int val) {
         if (stk.isEmpty()) {
             stk.push(new int[] {val, val});
@@ -60,14 +65,27 @@ public class MinStackC155 {
         }
     }
 
+    /**
+     * Pop the top element of the stack.
+     */
     public void pop() {
         stk.pop();
     }
 
+    /**
+     * View the top element of the stack.
+     *
+     * @return the top element of the stack.
+     */
     public int top() {
         return stk.peek()[0];
     }
 
+    /**
+     * Get the smallest element in the stack.
+     *
+     * @return the smallest element in the stack.
+     */
     public int getMin() {
         return stk.peek()[1];
     }

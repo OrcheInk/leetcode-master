@@ -50,6 +50,11 @@ public class MinStackB155 {
     /** Top element of the stack. */
     private ListNode top;
 
+    /**
+     * Add the element to the stack.
+     *
+     * @param val the element.
+     */
     public void push(int val) {
         if (top == null) {
             top = new ListNode(val, val);
@@ -58,18 +63,34 @@ public class MinStackB155 {
         }
     }
 
+    /**
+     * Pop the top element of the stack.
+     */
     public void pop() {
         top = top.next;
     }
 
+    /**
+     * View the top element of the stack.
+     *
+     * @return the top element of the stack.
+     */
     public int top() {
         return top.val;
     }
 
+    /**
+     * Get the smallest element in the stack.
+     *
+     * @return the smallest element in the stack.
+     */
     public int getMin() {
         return top.min;
     }
 
+    /**
+     * linked list node.
+     */
     private static class ListNode {
 
         /** Current node value. */

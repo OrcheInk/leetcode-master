@@ -64,22 +64,40 @@ public class MinStackA155 {
         minStk.push(Integer.MAX_VALUE);
     }
 
+    /**
+     * Add the element to the stack.
+     *
+     * @param val the element.
+     */
     public void push(int val) {
         stk.push(val);
         // noinspection ConstantConditions
         minStk.push(Math.min(minStk.peek(), val));
     }
 
+    /**
+     * Pop the top element of the stack.
+     */
     public void pop() {
         stk.pop();
         minStk.pop();
     }
 
+    /**
+     * View the top element of the stack.
+     *
+     * @return the top element of the stack.
+     */
     public int top() {
         // noinspection ConstantConditions
         return stk.peek();
     }
 
+    /**
+     * Get the smallest element in the stack.
+     *
+     * @return the smallest element in the stack.
+     */
     public int getMin() {
         // noinspection ConstantConditions
         return minStk.peek();
