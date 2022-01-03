@@ -37,7 +37,7 @@ package pers.ricardolp.leetcode.easy;
  *
  * Constraints:
  * <p>
- * -2<sup>31</sup> <= val <= 2<sup>31-1</sup> <br>
+ * -2<sup>31</sup> <= val <= 2<sup>31</sup>-1 <br>
  * Methods pop, top and getMin operations will always be called on non-empty
  * stacks. <br>
  * At most 3 * 10<sup>4</sup> calls will be made to push, pop, top, and getMin.
@@ -45,25 +45,54 @@ package pers.ricardolp.leetcode.easy;
  * @author RicardoLP
  * @since 2021/12/20
  */
-public class MinStack155 {
+public class MinStackB155 {
 
-    // public MinStack() {
-    //
-    // }
-    //
-    // public void push(int val) {
-    //
-    // }
-    //
-    // public void pop() {
-    //
-    // }
-    //
-    // public int top() {
-    //
-    // }
-    //
-    // public int getMin() {
-    //
-    // }
+    /** Top element of the stack. */
+    private ListNode top;
+
+    public void push(int val) {
+        if (top == null) {
+            top = new ListNode(val, val);
+        } else {
+            top = new ListNode(val, Math.min(val, top.min), top);
+        }
+    }
+
+    public void pop() {
+        top = top.next;
+    }
+
+    public int top() {
+        return top.val;
+    }
+
+    public int getMin() {
+        return top.min;
+    }
+
+    private static class ListNode {
+
+        /** Current node value. */
+        int val;
+        /** The minimum value in the stack. */
+        int min;
+        /** The next node in the stack. */
+        ListNode next;
+
+        private ListNode(int val, int min) {
+            this(val, min, null);
+        }
+
+        private ListNode(int val, int min, ListNode next) {
+            this.val = val;
+            this.min = min;
+            this.next = next;
+        }
+
+        @Override
+        public String toString() {
+            return "val=" + val + ", min=" + min;
+        }
+    }
+
 }
