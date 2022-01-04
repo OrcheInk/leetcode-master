@@ -18,7 +18,7 @@ class RemoveDuplicatesFromSortedList83Test {
 
     private ListNode head;
 
-    private ListNode answer;
+    private String answer = "1,2,3,null";
 
     @BeforeEach
     public void setUp() {
@@ -34,27 +34,20 @@ class RemoveDuplicatesFromSortedList83Test {
         node2.next = node3;
         node3.next = node4;
 
-        ListNode answerNode1 = new ListNode(2);
-        ListNode answerNode2 = new ListNode(3);
-
-        answer = new ListNode(1);
-        answer.next = answerNode1;
-        answerNode1.next = answerNode2;
-
         solution = new RemoveDuplicatesFromSortedList83();
     }
 
     @Test
     void deleteDuplicates1() {
         ListNode result = solution.deleteDuplicates1(head);
-        Assertions.assertEquals(answer, result);
+        Assertions.assertEquals(answer, result.toString());
 
     }
 
     @Test
     void deleteDuplicates2() {
         ListNode result = solution.deleteDuplicates2(head);
-        Assertions.assertEquals(answer, result);
+        Assertions.assertEquals(answer, result.toString());
     }
 
 }

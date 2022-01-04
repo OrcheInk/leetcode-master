@@ -53,7 +53,6 @@ class ConvertSortedArrayToBinarySearchTree108Test {
         list = traversal.preorderTraversal1(result);
 
         Assertions.assertEquals(answer1, list);
-        System.out.println(list);
     }
 
     @Test

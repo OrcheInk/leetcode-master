@@ -1,13 +1,16 @@
 package pers.ricardolp.leetcode.easy;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import pers.ricardolp.leetcode.easy.other.ListNode;
 
 /**
  * leetcode_160 : Intersection of Two Linked Lists.
  * <p>
- * Given the heads of two singly linked-lists headA and headB, return the node
- * at which the two lists intersect. If the two linked lists have no
- * intersection at all, return null.
+ * Given the heads of two singly linked-lists {@code headA} and {@code headB},
+ * return the node at which the two lists intersect. If the two linked lists
+ * have no intersection at all, return null.
  * <p>
  * The test cases are generated such that there are no cycles anywhere in the
  * entire linked structure.
@@ -16,7 +19,7 @@ import pers.ricardolp.leetcode.easy.other.ListNode;
  * function returns.
  *
  * <pre>
- * Custom Judge:
+ * <b>Custom Judge:</b>
  *
  * The inputs to the judge are given as follows (your program is not given these inputs):
  *
@@ -64,7 +67,34 @@ import pers.ricardolp.leetcode.easy.other.ListNode;
  * @since 2021/12/20
  */
 public class IntersectionOfTwoLinkedLists160 {
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+
+    /**
+     * Solution1.
+     * <p>
+     *
+     * @param headA the head node of the first linked list.
+     * @param headB the head node of the second linked list.
+     * @return the intersection of two linked lists.
+     */
+    public ListNode getIntersectionNode1(ListNode headA, ListNode headB) {
+
+        Set<ListNode> visited = new HashSet<>();
+        ListNode cur = headA;
+
+        while (cur != null) {
+            visited.add(cur);
+            cur = cur.next;
+        }
+
+        cur = headB;
+        while (cur != null) {
+            if (visited.contains(cur)) {
+                return cur;
+            }
+            cur = cur.next;
+        }
         return null;
+
     }
+
 }

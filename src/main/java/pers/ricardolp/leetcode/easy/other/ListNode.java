@@ -27,26 +27,14 @@ public class ListNode {
         this.next = next;
     }
 
-    /**
-     * Output linked list.
-     *
-     * @return the contents of the list.
-     */
     @Override
     public String toString() {
-        return val + "";
+        return val + "," + next;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof ListNode)) {
-            return false;
-        }
-        ListNode listNode = (ListNode)o;
-        return val == listNode.val && Objects.equals(next, listNode.next);
+        return this == o;
     }
 
     @Override
