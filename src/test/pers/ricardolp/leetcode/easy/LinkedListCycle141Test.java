@@ -21,6 +21,7 @@ class LinkedListCycle141Test {
     @BeforeEach
     public void setUp() {
 
+        // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, null
         head = new ListNode(1);
         ListNode node1 = new ListNode(2);
         ListNode node2 = new ListNode(3);

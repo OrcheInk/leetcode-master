@@ -52,7 +52,7 @@ public class LinkedListCycle141 {
      * <p>
      * We can use a hash table to store all the nodes that have been visited. <br>
      * Every time we reach a node, if the node already exists in the hash table, it
-     * means that the linked list is a circular linked list. <br>
+     * means that the linked list is a circular-linked list. <br>
      * Otherwise, the node is added to the hash table. <br>
      * Repeat this process until we traverse the entire linked list.
      *

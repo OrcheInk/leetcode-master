@@ -24,13 +24,16 @@ class IntersectionOfTwoLinkedLists160Test {
     @BeforeEach
     public void setUp() {
 
+        // 4, 1, 8, 4, 5, null
         headA = new ListNode(4);
         ListNode node1 = new ListNode(1);
 
+        // 5, 6, 1, 8, 4, 5, null
         headB = new ListNode(5);
         ListNode node2 = new ListNode(6);
         ListNode node3 = new ListNode(1);
 
+        // Intersection.
         ListNode node4 = new ListNode(8);
         ListNode node5 = new ListNode(4);
         ListNode node6 = new ListNode(5);
@@ -51,6 +54,18 @@ class IntersectionOfTwoLinkedLists160Test {
     @Test
     void getIntersectionNode1() {
         ListNode result = solution.getIntersectionNode1(headA, headB);
+        Assertions.assertEquals(answer, result.val);
+    }
+
+    @Test
+    void getIntersectionNode2() {
+        ListNode result = solution.getIntersectionNode2(headA, headB);
+        Assertions.assertEquals(answer, result.val);
+    }
+
+    @Test
+    void getIntersectionNode3() {
+        ListNode result = solution.getIntersectionNode3(headA, headB);
         Assertions.assertEquals(answer, result.val);
     }
 

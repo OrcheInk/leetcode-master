@@ -25,6 +25,7 @@ class BalancedBinaryTree110Test {
 
         solution = new BalancedBinaryTree110();
 
+        // 3, 9, 20, null, null, 15, 7
         root = new TreeNode(3);
         TreeNode node1 = new TreeNode(9);
         TreeNode node2 = new TreeNode(20);

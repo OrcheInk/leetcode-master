@@ -21,6 +21,7 @@ class SymmetricTree101Test {
     @BeforeEach
     public void setUp() {
 
+        // 1, 2, 2, 3, 4, 4, 3
         root = new TreeNode(1);
         TreeNode node1 = new TreeNode(2);
         TreeNode node2 = new TreeNode(2);

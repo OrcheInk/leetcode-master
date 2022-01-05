@@ -22,8 +22,8 @@ class MinimumDepthOfBinaryTree111Test {
 
     @BeforeEach
     public void setUp() {
-        solution = new MinimumDepthOfBinaryTree111();
 
+        // 2, null, 3, null, 4, 5, null, 6
         root = new TreeNode(2);
         TreeNode node1 = new TreeNode(3);
         TreeNode node2 = new TreeNode(4);
@@ -34,6 +34,8 @@ class MinimumDepthOfBinaryTree111Test {
         node1.right = node2;
         node2.left = node3;
         node3.left = node4;
+
+        solution = new MinimumDepthOfBinaryTree111();
     }
 
     @Test

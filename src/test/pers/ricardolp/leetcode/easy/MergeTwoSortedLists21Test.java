@@ -19,7 +19,7 @@ class MergeTwoSortedLists21Test {
     private ListNode l1;
     private ListNode l2;
 
-    private String answer = "1,1,2,3,4,4,null";
+    private String answer = "1, 1, 2, 3, 4, 4, null";
 
     @BeforeEach
     public void setUp() {

@@ -27,6 +27,7 @@ class BinaryTreePostorderTraversal145Test {
     @BeforeEach
     public void setUp() {
 
+        // 1, 2, 3, 4, null, null, 5, null, 6, 7, 8
         root = new TreeNode(1);
         TreeNode node1 = new TreeNode(2);
         TreeNode node2 = new TreeNode(3);

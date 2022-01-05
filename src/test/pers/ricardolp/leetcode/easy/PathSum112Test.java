@@ -22,6 +22,7 @@ class PathSum112Test {
     @BeforeEach
     public void setUp() {
 
+        // 5, 4, 8, 11, null, 13, 4, 7, 2,null, null, null, 8
         root = new TreeNode(5);
         TreeNode node1 = new TreeNode(4);
         TreeNode node2 = new TreeNode(8);

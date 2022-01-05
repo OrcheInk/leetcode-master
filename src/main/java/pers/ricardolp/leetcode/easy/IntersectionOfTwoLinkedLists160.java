@@ -71,6 +71,8 @@ public class IntersectionOfTwoLinkedLists160 {
     /**
      * Solution1.
      * <p>
+     * Use the hash table to store the visited nodes, if there are duplicates, it
+     * means that the two linked lists have intersections.
      *
      * @param headA the head node of the first linked list.
      * @param headB the head node of the second linked list.
@@ -78,15 +80,22 @@ public class IntersectionOfTwoLinkedLists160 {
      */
     public ListNode getIntersectionNode1(ListNode headA, ListNode headB) {
 
+        // If there is an empty-linked list, there is no intersection.
+        if (headA == null || headB == null) {
+            return null;
+        }
+
         Set<ListNode> visited = new HashSet<>();
         ListNode cur = headA;
 
+        // Store the node of the A-linked list.
         while (cur != null) {
             visited.add(cur);
             cur = cur.next;
         }
 
         cur = headB;
+        // Check whether there are nodes of the B-linked list in the hash table.
         while (cur != null) {
             if (visited.contains(cur)) {
                 return cur;
@@ -95,6 +104,119 @@ public class IntersectionOfTwoLinkedLists160 {
         }
         return null;
 
+    }
+
+    /**
+     * Solution2.
+     * <p>
+     * Double pointer method.
+     * <p>
+     * When the linked lists {@code headA} and {@code headB} are not empty, two
+     * pointers {@code pointerA} and {@code pointerB} are created, which initially
+     * point to the head nodes {@code headA} and {@code headB} of the two linked
+     * lists respectively, and then the two pointers traverse each node of the two
+     * linked lists in turn.
+     * <p>
+     * Each operation needs to update the pointers {@code pointerA} and
+     * {@code pointerB} at the same time.
+     * <p>
+     * If the pointer {@code pointerA} is not empty, move the pointer
+     * {@code pointerA} to the next node. <br>
+     * if the pointer {@code pointerB} is not empty, move the pointer
+     * {@code pointerB} to the next node.
+     * <p>
+     * If the pointer {@code pointerA} is empty, move the pointer {@code pointerA}
+     * to the head node of the linked list {@code pointerB}. <br>
+     * if the pointer {@code pointerB} is empty, move the pointer {@code pointerB}
+     * Go to the head node of the linked list {@code headA}.
+     * <p>
+     * When the pointers {@code pointerA} and {@code pointerB} point to the same
+     * node or are empty, return the node they point to or {@code null}.
+     *
+     * @param headA the head node of the first linked list.
+     * @param headB the head node of the second linked list.
+     * @return the intersection of two linked lists.
+     */
+    public ListNode getIntersectionNode2(ListNode headA, ListNode headB) {
+
+        // If there is an empty-linked list, there is no intersection.
+        if (headA == null || headB == null) {
+            return null;
+        }
+
+        // Initialize pointer.
+        ListNode pointerA = headA, pointerB = headB;
+
+        while (pointerA != pointerB) {
+            // If pointerA is equal to null, point the next node to headB.
+            pointerA = pointerA == null ? headB : pointerA.next;
+            // If pointerB is equal to null, point the next node to headA.
+            pointerB = pointerB == null ? headA : pointerB.next;
+        }
+        return pointerA;
+    }
+
+    /**
+     * Solution3.
+     * <p>
+     * Construct a circular linked list, the entry of the linked list is the
+     * intersection point.
+     *
+     * @param headA the head node of the first linked list.
+     * @param headB the head node of the second linked list.
+     * @return the intersection of two linked lists.
+     */
+    public ListNode getIntersectionNode3(ListNode headA, ListNode headB) {
+
+        // If there is an empty-linked list, there is no intersection.
+        if (headA == null || headB == null) {
+            return null;
+        }
+
+        ListNode last = headB;
+
+        // Find the end of the linked list.
+        while (last.next != null) {
+            last = last.next;
+        }
+        // Connect the B-linked list end to start to form a circular linked list.
+        last.next = headB;
+
+        // Initialize fast and slow pointers.
+        ListNode fast = headA;
+        ListNode slow = headA;
+
+        // Find the entrance to the circular linked list.
+        while (fast != null && fast.next != null) {
+
+            slow = slow.next;
+            fast = fast.next.next;
+
+            // Fast and slow pointers meet.
+            if (slow == fast) {
+
+                // Reset the slow pointer to the origin of the linked list.
+                slow = headA;
+
+                /*
+                 * When jumping out of the loop, the fast and slow pointers meet again,
+                 * which is the entry of the linked list.
+                 */
+                while (slow != fast) {
+                    // Set the fast and slow pointers to the same running speed.
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+
+                // There is intersection in the linked list, break the end.
+                last.next = null;
+
+                return fast;
+            }
+        }
+        // There is no intersection in the linked list, break the end.
+        last.next = null;
+        return null;
     }
 
 }

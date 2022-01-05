@@ -27,6 +27,7 @@ class BinaryTreeInorderTraversal94Test {
     @BeforeEach
     public void setUp() {
 
+        // 0, 1, 2, 3, null, null, 4
         root = new TreeNode(0);
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);

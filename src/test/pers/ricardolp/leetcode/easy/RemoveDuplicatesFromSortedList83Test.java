@@ -18,11 +18,12 @@ class RemoveDuplicatesFromSortedList83Test {
 
     private ListNode head;
 
-    private String answer = "1,2,3,null";
+    private String answer = "1, 2, 3, null";
 
     @BeforeEach
     public void setUp() {
 
+        // 1, 1, 2, 3, 3, null
         head = new ListNode(1);
         ListNode node1 = new ListNode(1);
         ListNode node2 = new ListNode(2);
